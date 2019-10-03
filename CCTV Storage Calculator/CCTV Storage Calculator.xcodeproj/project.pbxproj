@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE4069CF2343AA8B003B0626 /* Optiview CCTV Storage Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Optiview CCTV Storage Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4069CF2343AA8B003B0626 /* CCTV Storage Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CCTV Storage Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4069D22343AA8B003B0626 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4069D42343AA8B003B0626 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE4069D62343AA8B003B0626 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		CE4069D02343AA8B003B0626 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE4069CF2343AA8B003B0626 /* Optiview CCTV Storage Calculator.app */,
+				CE4069CF2343AA8B003B0626 /* CCTV Storage Calculator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE4069CE2343AA8B003B0626 /* Optiview CCTV Storage Calculator */ = {
+		CE4069CE2343AA8B003B0626 /* CCTV Storage Calculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE4069E32343AA8E003B0626 /* Build configuration list for PBXNativeTarget "Optiview CCTV Storage Calculator" */;
+			buildConfigurationList = CE4069E32343AA8E003B0626 /* Build configuration list for PBXNativeTarget "CCTV Storage Calculator" */;
 			buildPhases = (
 				CE4069CB2343AA8B003B0626 /* Sources */,
 				CE4069CC2343AA8B003B0626 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "Optiview CCTV Storage Calculator";
+			name = "CCTV Storage Calculator";
 			productName = "Optiview CCTV Storage Calculator";
-			productReference = CE4069CF2343AA8B003B0626 /* Optiview CCTV Storage Calculator.app */;
+			productReference = CE4069CF2343AA8B003B0626 /* CCTV Storage Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE4069CA2343AA8B003B0626 /* Build configuration list for PBXProject "Optiview CCTV Storage Calculator" */;
+			buildConfigurationList = CE4069CA2343AA8B003B0626 /* Build configuration list for PBXProject "CCTV Storage Calculator" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE4069CE2343AA8B003B0626 /* Optiview CCTV Storage Calculator */,
+				CE4069CE2343AA8B003B0626 /* CCTV Storage Calculator */,
 			);
 		};
 /* End PBXProject section */
@@ -292,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.casualtygames.Optiview-CCTV-Storage-Calculator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CCTV Storage Calculator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -310,7 +310,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.casualtygames.Optiview-CCTV-Storage-Calculator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "CCTV Storage Calculator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -319,7 +319,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE4069CA2343AA8B003B0626 /* Build configuration list for PBXProject "Optiview CCTV Storage Calculator" */ = {
+		CE4069CA2343AA8B003B0626 /* Build configuration list for PBXProject "CCTV Storage Calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE4069E12343AA8E003B0626 /* Debug */,
@@ -328,7 +328,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE4069E32343AA8E003B0626 /* Build configuration list for PBXNativeTarget "Optiview CCTV Storage Calculator" */ = {
+		CE4069E32343AA8E003B0626 /* Build configuration list for PBXNativeTarget "CCTV Storage Calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE4069E42343AA8E003B0626 /* Debug */,
