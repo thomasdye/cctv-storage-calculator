@@ -17,32 +17,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var megapixelSelectedSegementedControl: UISegmentedControl!
     @IBOutlet weak var totalDaysTextField: UITextField!
     @IBOutlet weak var totalHoursTextField: UITextField!
-    @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var totalCamerasStepper: UIStepper!
     @IBOutlet weak var motionDetectSegmentedControl: UISegmentedControl!
     @IBOutlet weak var totalDaysStepper: UIStepper!
     @IBOutlet weak var totalHoursStepper: UIStepper!
+    @IBOutlet weak var compressionSegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var framesPerSecondSlider: UISlider!
+    @IBOutlet weak var framesPerSecondLabel: UILabel!
     
     // Defining variables and constants
     var totalCameras: Int = 0
-    var resolution: Int = 0
-    var camBitrate: Int = 2048
-    var totalDays: Int = 0
-    var totalHours: Int = 0
+    var camBitrate: Int = FrameSize.twoMegapixel.rawValue
+    var totalDays: Int = 30
+    var totalHours: Int = 24
     var motionDetectOn: Bool = false
-    var isGigabyte: Bool = true
     var storageGB: Double = 0
     var storageTB: Double = 0.0
+    var compression: Double = 1.0
+    var framesPerSecond: Int = 7
     let convertSecondsToHour: Int = 3600
     var accentColor: UIColor = UIColor(hue: 0.5694, saturation: 1, brightness: 0.93, alpha: 1.0)
     
     // CameraBitrate enum to use in calculation
-    enum CameraBitrate: Int {
-        case twoMegapixel = 2048
-        case threeMegapixel = 3020
-        case fourMegapixel = 4096
-        case fiveMegapixel = 7500
-        case eightMegapixel = 12_000
+    enum FrameSize: Int {
+        case twoMegapixel = 15
+        case threeMegapixel = 20
+        case fourMegapixel = 25
+        case fiveMegapixel = 30
+        case eightMegapixel = 50
     }
 
     // View loaded
@@ -50,42 +53,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setup()
+        calculateStorage()
 
     }
     
-    // Calculate button tapped
-    @IBAction func calculateButtonTapped(_ sender: UIButton) {
-        
-        retreiveValues()
-        
-        storageGB = Double(((camBitrate / 8) * convertSecondsToHour * totalHours * totalCameras * totalDays) / 1_000_000).rounded(.up)
-        
-        if motionDetectOn == true {
-            storageGB = storageGB / 2
-        }
-        
-        if storageGB >= 1000 {
-            storageTB = (storageGB / 1000).rounded(.up)
-            
-          totalStorageLabel.text = "\(storageTB) TB"
-        } else {
-            totalStorageLabel.text = "\(storageGB) GB"
-        }
-    }
+    // Calculate storage
     
     @IBAction func totalCamerasStepperPressed(_ sender: UIStepper) {
         
         totalCamerasTextField.text = Int(sender.value).description
+        calculateStorage()
     }
     
     @IBAction func totalDaysStepperPressed(_ sender: UIStepper) {
         
         totalDaysTextField.text = Int(sender.value).description
+        calculateStorage()
     }
     
     @IBAction func totalHoursStepperPressed(_ sender: UIStepper) {
         
         totalHoursTextField.text = Int(sender.value).description
+        calculateStorage()
     }
     
     @IBAction func motionDetectSegementedControlPressed(_ sender: UISegmentedControl) {
@@ -99,6 +88,7 @@ class ViewController: UIViewController {
          default:
              break
          }
+         calculateStorage()
     }
     
     @IBAction func megapixelSegmentedControlPressed(_ sender: UISegmentedControl) {
@@ -106,18 +96,40 @@ class ViewController: UIViewController {
         switch megapixelSelectedSegementedControl.selectedSegmentIndex
          {
         case 0:
-            camBitrate = CameraBitrate.twoMegapixel.rawValue
+            camBitrate = FrameSize.twoMegapixel.rawValue
         case 1:
-            camBitrate = CameraBitrate.threeMegapixel.rawValue
+            camBitrate = FrameSize.threeMegapixel.rawValue
         case 2:
-            camBitrate = CameraBitrate.fourMegapixel.rawValue
+            camBitrate = FrameSize.fourMegapixel.rawValue
         case 3:
-            camBitrate = CameraBitrate.fiveMegapixel.rawValue
+            camBitrate = FrameSize.fiveMegapixel.rawValue
         case 4:
-            camBitrate = CameraBitrate.eightMegapixel.rawValue
+            camBitrate = FrameSize.eightMegapixel.rawValue
         default:
             break
          }
+        calculateStorage()
+    }
+    
+    @IBAction func compressionSegmentedControlPressed(_ sender: UISegmentedControl) {
+
+        switch compressionSegmentedControl.selectedSegmentIndex
+         {
+        case 0:
+            compression = 1.0
+        case 1:
+            compression = 1.56
+        default:
+            break
+         }
+        calculateStorage()
+    }
+    
+    @IBAction func framesPerSecondSliderChanged(_ sender: UISlider) {
+        calculateStorage()
+        framesPerSecond = Int(sender.value)
+        framesPerSecondLabel.text = "FPS: \(framesPerSecond)"
+        
     }
     
     func setup() {
@@ -141,15 +153,19 @@ class ViewController: UIViewController {
     
     func setupAccentColors() {
         
-        totalHoursStepper.setDecrementImage(totalHoursStepper.decrementImage(for: .normal), for: .normal)
-        totalHoursStepper.setIncrementImage(totalHoursStepper.incrementImage(for: .normal), for: .normal)
-        totalDaysStepper.setDecrementImage(totalDaysStepper.decrementImage(for: .normal), for: .normal)
-        totalDaysStepper.setIncrementImage(totalDaysStepper.incrementImage(for: .normal), for: .normal)
-        totalCamerasStepper.setDecrementImage(totalCamerasStepper.decrementImage(for: .normal), for: .normal)
-        totalCamerasStepper.setIncrementImage(totalCamerasStepper.incrementImage(for: .normal), for: .normal)
+        totalHoursStepper.setDecrementImage(
+            totalHoursStepper.decrementImage(for: .normal), for: .normal)
+        totalHoursStepper.setIncrementImage(
+            totalHoursStepper.incrementImage(for: .normal), for: .normal)
+        totalDaysStepper.setDecrementImage(
+            totalDaysStepper.decrementImage(for: .normal), for: .normal)
+        totalDaysStepper.setIncrementImage(
+            totalDaysStepper.incrementImage(for: .normal), for: .normal)
+        totalCamerasStepper.setDecrementImage(
+            totalCamerasStepper.decrementImage(for: .normal), for: .normal)
+        totalCamerasStepper.setIncrementImage(
+            totalCamerasStepper.incrementImage(for: .normal), for: .normal)
     
-        
-        
         totalCamerasStepper.tintColor = accentColor
         totalDaysStepper.tintColor = accentColor
         totalHoursStepper.tintColor = accentColor
@@ -183,6 +199,43 @@ class ViewController: UIViewController {
         totalHoursStepper.maximumValue = 24
         totalHoursStepper.wraps = true
         totalHoursStepper.minimumValue = 1
+    }
+    
+    func calculateStorage() {
+        // Retreive values from text fields
+         retreiveValues()
+         
+         // Calculate total frame size per second
+         // ex: 7 (FPS) * 50KB (twoMegapixel) = 350KB/s
+         let totalFrameSizePerSecond = (framesPerSecond * camBitrate)
+         
+         // ex 350KB/s * 3600 (seconds/hour) = 1_260_000KB/hr
+         let totalSizePerHour = totalFrameSizePerSecond * 3600
+         
+         // Calculate storage in GB
+         // ex (1,260,000 * 30 * 24) = 907,200,000 / 1,000,000
+         storageGB = Double((totalSizePerHour * totalDays * totalHours) / 1_000_000)
+         
+         // Multiplying total storage calculated per camera times the total number of cameras
+         storageGB = storageGB * Double(totalCameras)
+         
+         // Divide storage by compression
+         storageGB = storageGB / compression
+         
+         // If motion detect is on, divide total GB by 1.35
+         if motionDetectOn == true {
+             storageGB = storageGB / 2.0
+         }
+         
+         // Then, if storage in GB is greater than 1000GB (1TB), calculate storage in TB
+         if storageGB >= 1000 {
+             storageTB = storageTB / compression
+             storageTB = (storageGB / 1000).rounded(.up)
+             
+           totalStorageLabel.text = "\(storageTB) TB"
+         } else {
+             totalStorageLabel.text = "\(storageGB) GB"
+         }
     }
 }
 
