@@ -25,6 +25,7 @@ class CalculateStorageViewController: UIViewController {
     @IBOutlet weak var framesPerSecondSlider: UISlider!
     @IBOutlet weak var framesPerSecondLabel: UILabel!
     @IBOutlet weak var audioSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var optiviewUSAButton: UIButton!
     
     // Defining variables and constants
     var totalCameras: Int = 0
@@ -55,7 +56,15 @@ class CalculateStorageViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
         calculateStorage()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
     }
     
     // Total cameras stepper changed
@@ -78,6 +87,14 @@ class CalculateStorageViewController: UIViewController {
              break
          }
          calculateStorage()
+    }
+    
+    // Optiview link button tapped
+    @IBAction func didTapOptiviewLink(sender: UIButton) {
+        
+        if let url = URL(string: "https://www.optiviewusa.com") {
+            UIApplication.shared.open(url)
+        }
     }
     
     // Total days stepper changed
@@ -159,6 +176,7 @@ class CalculateStorageViewController: UIViewController {
         setupText()
         setupSteppers()
         setupAccentColors()
+        setupOptiviewButton()
     }
     
     // Create function to disable text fields
@@ -192,6 +210,11 @@ class CalculateStorageViewController: UIViewController {
         totalCamerasStepper.tintColor = accentColor
         totalDaysStepper.tintColor = accentColor
         totalHoursStepper.tintColor = accentColor
+    }
+    
+    func setupOptiviewButton() {
+        optiviewUSAButton.backgroundColor = .systemBlue
+        optiviewUSAButton.layer.cornerRadius = 5
     }
     
     // Setup text fields
