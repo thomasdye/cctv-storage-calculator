@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController {
+class CalculateStorageViewController: UIViewController {
     
     // Adding outlets
     @IBOutlet weak var totalStorageLabel: UILabel!

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Thomas Dye. All rights reserved.
 //
 
-
 import UIKit
 
 class AnimatedTabBarController: UITabBarController {
@@ -31,7 +30,6 @@ extension AnimatedTabBarController: UITabBarControllerDelegate {
 
 }
 
-
 /*
  UIViewControllerAnimatedTransitioning
  A set of methods for implementing the animations for a custom view controller transition.
@@ -39,14 +37,12 @@ extension AnimatedTabBarController: UITabBarControllerDelegate {
  */
 final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
 
-    /*
-     Tells your animator object to perform the transition animations.
-     */
+    
+    // Tells your animator object to perform the transition animations
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let destination = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
 
         destination.alpha = 0.0
-        destination.transform = .init(scaleX: 1.5, y: 1.5)
         transitionContext.containerView.addSubview(destination)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
@@ -55,9 +51,8 @@ final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
         }, completion: { transitionContext.completeTransition($0) })
     }
 
-    /*
-     Asks your animator object for the duration (in seconds) of the transition animation.
-     */
+    
+    //Asks your animator object for the duration (in seconds) of the transition animation.
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.25
     }

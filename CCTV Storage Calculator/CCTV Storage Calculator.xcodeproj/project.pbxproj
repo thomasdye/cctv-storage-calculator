@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CE3EA6FC234CE380004A4864 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA6FB234CE380004A4864 /* TabBarController.swift */; };
+		CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */; };
+		CE3EA702234CE889004A4864 /* LensCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */; };
 		CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D22343AA8B003B0626 /* AppDelegate.swift */; };
 		CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D42343AA8B003B0626 /* SceneDelegate.swift */; };
-		CE4069D72343AA8B003B0626 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D62343AA8B003B0626 /* ViewController.swift */; };
 		CE4069DA2343AA8B003B0626 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4069D82343AA8B003B0626 /* Main.storyboard */; };
 		CE4069DC2343AA8E003B0626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4069DB2343AA8E003B0626 /* Assets.xcassets */; };
 		CE4069DF2343AA8E003B0626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4069DD2343AA8E003B0626 /* LaunchScreen.storyboard */; };
@@ -18,10 +19,11 @@
 
 /* Begin PBXFileReference section */
 		CE3EA6FB234CE380004A4864 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateStorageViewController.swift; sourceTree = "<group>"; };
+		CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensCalculatorViewController.swift; sourceTree = "<group>"; };
 		CE4069CF2343AA8B003B0626 /* CCTV Storage Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CCTV Storage Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4069D22343AA8B003B0626 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4069D42343AA8B003B0626 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE4069D62343AA8B003B0626 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE4069D92343AA8B003B0626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE4069DB2343AA8E003B0626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4069DE2343AA8E003B0626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +41,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE3EA703234CE88E004A4864 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */,
+				CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CE3EA704234CE8A0004A4864 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE3EA6FB234CE380004A4864 /* TabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE3EA705234CE8B2004A4864 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				CE4069DB2343AA8E003B0626 /* Assets.xcassets */,
+				CE4069D22343AA8B003B0626 /* AppDelegate.swift */,
+				CE4069D42343AA8B003B0626 /* SceneDelegate.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		CE3EA706234CE8C3004A4864 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CE4069D82343AA8B003B0626 /* Main.storyboard */,
+				CE4069DD2343AA8E003B0626 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		CE4069C62343AA8B003B0626 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +96,11 @@
 		CE4069D12343AA8B003B0626 /* Optiview CCTV Storage Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				CE4069D22343AA8B003B0626 /* AppDelegate.swift */,
-				CE4069D42343AA8B003B0626 /* SceneDelegate.swift */,
-				CE4069D62343AA8B003B0626 /* ViewController.swift */,
-				CE4069D82343AA8B003B0626 /* Main.storyboard */,
-				CE4069DB2343AA8E003B0626 /* Assets.xcassets */,
-				CE4069DD2343AA8E003B0626 /* LaunchScreen.storyboard */,
 				CE4069E02343AA8E003B0626 /* Info.plist */,
-				CE3EA6FB234CE380004A4864 /* TabBarController.swift */,
+				CE3EA704234CE8A0004A4864 /* Controllers */,
+				CE3EA703234CE88E004A4864 /* View Controllers */,
+				CE3EA705234CE8B2004A4864 /* Misc */,
+				CE3EA706234CE8C3004A4864 /* Storyboard */,
 			);
 			path = "Optiview CCTV Storage Calculator";
 			sourceTree = "<group>";
@@ -141,10 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4069D72343AA8B003B0626 /* ViewController.swift in Sources */,
 				CE3EA6FC234CE380004A4864 /* TabBarController.swift in Sources */,
 				CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,
+				CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */,
+				CE3EA702234CE889004A4864 /* LensCalculatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
