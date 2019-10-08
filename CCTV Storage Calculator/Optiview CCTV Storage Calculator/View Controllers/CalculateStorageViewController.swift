@@ -58,15 +58,6 @@ class CalculateStorageViewController: UIViewController {
         calculateStorage()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    override open var shouldAutorotate: Bool {
-        return false
-    }
-    
     // Total cameras stepper changed
     @IBAction func totalCamerasStepperPressed(_ sender: UIStepper) {
         
