@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalDaysStepper: UIStepper!
     @IBOutlet weak var totalHoursStepper: UIStepper!
     @IBOutlet weak var compressionSegmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var framesPerSecondSlider: UISlider!
     @IBOutlet weak var framesPerSecondLabel: UILabel!
+    @IBOutlet weak var audioSegmentedControl: UISegmentedControl!
     
     // Defining variables and constants
     var totalCameras: Int = 0
@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     var totalDays: Int = 30
     var totalHours: Int = 24
     var motionDetectOn: Bool = false
+    var audioOn: Bool = false
     var storageGB: Double = 0
     var storageTB: Double = 0.0
     var compression: Double = 1.0
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
         case eightMegapixel = 50
     }
 
-    // View loaded
+    // View loaded. Call setup and calculateStorage functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -57,26 +58,43 @@ class ViewController: UIViewController {
 
     }
     
-    // Calculate storage
-    
+    // Total cameras stepper changed
     @IBAction func totalCamerasStepperPressed(_ sender: UIStepper) {
         
         totalCamerasTextField.text = Int(sender.value).description
         calculateStorage()
     }
     
+    // Audio selected segment changed
+    @IBAction func audioSegmentedControlPressed(_ sender: UISegmentedControl) {
+        
+        switch audioSegmentedControl.selectedSegmentIndex
+         {
+         case 0:
+             audioOn = false
+         case 1:
+             audioOn = true
+         default:
+             break
+         }
+         calculateStorage()
+    }
+    
+    // Total days stepper changed
     @IBAction func totalDaysStepperPressed(_ sender: UIStepper) {
         
         totalDaysTextField.text = Int(sender.value).description
         calculateStorage()
     }
     
+    // Total hours stepper changed
     @IBAction func totalHoursStepperPressed(_ sender: UIStepper) {
         
         totalHoursTextField.text = Int(sender.value).description
         calculateStorage()
     }
     
+    // Motion detect selected segment changed
     @IBAction func motionDetectSegementedControlPressed(_ sender: UISegmentedControl) {
         
         switch motionDetectSegmentedControl.selectedSegmentIndex
@@ -91,6 +109,7 @@ class ViewController: UIViewController {
          calculateStorage()
     }
     
+    // Megapixel selected segment changed
     @IBAction func megapixelSegmentedControlPressed(_ sender: UISegmentedControl) {
         
         switch megapixelSelectedSegementedControl.selectedSegmentIndex
@@ -111,6 +130,7 @@ class ViewController: UIViewController {
         calculateStorage()
     }
     
+    // Compression selected segment changed
     @IBAction func compressionSegmentedControlPressed(_ sender: UISegmentedControl) {
 
         switch compressionSegmentedControl.selectedSegmentIndex
@@ -118,13 +138,14 @@ class ViewController: UIViewController {
         case 0:
             compression = 1.0
         case 1:
-            compression = 1.56
+            compression = 1.30
         default:
             break
          }
         calculateStorage()
     }
     
+    // FPS slider changed
     @IBAction func framesPerSecondSliderChanged(_ sender: UISlider) {
         calculateStorage()
         framesPerSecond = Int(sender.value)
@@ -132,14 +153,15 @@ class ViewController: UIViewController {
         
     }
     
+    // Create setup function for easier editing later
     func setup() {
         
         setupText()
         setupSteppers()
         setupAccentColors()
-
     }
     
+    // Create function to disable text fields
     func disableTextFields(named: UITextField) {
         named.isEnabled = false
     }
@@ -151,6 +173,7 @@ class ViewController: UIViewController {
         totalDays = Int(totalDaysTextField.text!)!
     }
     
+    // Setup accent colors
     func setupAccentColors() {
         
         totalHoursStepper.setDecrementImage(
@@ -171,6 +194,7 @@ class ViewController: UIViewController {
         totalHoursStepper.tintColor = accentColor
     }
     
+    // Setup text fields
     func setupText() {
         // text field and label setup
         totalCamerasTextField.text = "8"
@@ -185,6 +209,7 @@ class ViewController: UIViewController {
 
     }
     
+    // Setup steppers
     func setupSteppers() {
         // totalCamerasStepper setup
         totalCamerasStepper.value = 8
@@ -201,7 +226,9 @@ class ViewController: UIViewController {
         totalHoursStepper.minimumValue = 1
     }
     
+    // Create calculate storage function
     func calculateStorage() {
+        
         // Retreive values from text fields
          retreiveValues()
          
@@ -224,7 +251,13 @@ class ViewController: UIViewController {
          
          // If motion detect is on, divide total GB by 1.35
          if motionDetectOn == true {
-             storageGB = storageGB / 2.0
+            storageGB = storageGB / 1.35
+         }
+        
+         // If audio is on, multiply total GB by 1.02
+         if audioOn == true {
+            storageGB = storageGB * 1.02
+            
          }
          
          // Then, if storage in GB is greater than 1000GB (1TB), calculate storage in TB

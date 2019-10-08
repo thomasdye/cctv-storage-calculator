@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE3EA6FC234CE380004A4864 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA6FB234CE380004A4864 /* TabBarController.swift */; };
 		CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D22343AA8B003B0626 /* AppDelegate.swift */; };
 		CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D42343AA8B003B0626 /* SceneDelegate.swift */; };
 		CE4069D72343AA8B003B0626 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D62343AA8B003B0626 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE3EA6FB234CE380004A4864 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE4069CF2343AA8B003B0626 /* CCTV Storage Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CCTV Storage Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4069D22343AA8B003B0626 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4069D42343AA8B003B0626 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				CE4069DB2343AA8E003B0626 /* Assets.xcassets */,
 				CE4069DD2343AA8E003B0626 /* LaunchScreen.storyboard */,
 				CE4069E02343AA8E003B0626 /* Info.plist */,
+				CE3EA6FB234CE380004A4864 /* TabBarController.swift */,
 			);
 			path = "Optiview CCTV Storage Calculator";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4069D72343AA8B003B0626 /* ViewController.swift in Sources */,
+				CE3EA6FC234CE380004A4864 /* TabBarController.swift in Sources */,
 				CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,
 			);
