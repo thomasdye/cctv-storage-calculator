@@ -25,7 +25,6 @@ class CalculateStorageViewController: UIViewController {
     @IBOutlet weak var framesPerSecondSlider: UISlider!
     @IBOutlet weak var framesPerSecondLabel: UILabel!
     @IBOutlet weak var audioSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var optiviewUSAButton: UIButton!
     
     // Defining variables and constants
     var totalCameras: Int = 0
@@ -39,7 +38,14 @@ class CalculateStorageViewController: UIViewController {
     var compression: Double = 1.0
     var framesPerSecond: Int = 7
     let convertSecondsToHour: Int = 3600
-    var accentColor: UIColor = UIColor(hue: 0.5694, saturation: 1, brightness: 0.93, alpha: 1.0)
+    let optiviewAccentColor: UIColor = UIColor(hue: 0.5889,
+                                               saturation: 1,
+                                               brightness: 0.91,
+                                               alpha: 1.0)
+    let lightOptiviewAccentColor: UIColor = UIColor(hue: 0.5694,
+                                                    saturation: 1,
+                                                    brightness: 0.97,
+                                                    alpha: 1.0)
     
     // CameraBitrate enum to use in calculation
     enum FrameSize: Int {
@@ -72,20 +78,14 @@ class CalculateStorageViewController: UIViewController {
          {
          case 0:
              audioOn = false
+             audioSegmentedControl.selectedSegmentTintColor = .none
          case 1:
              audioOn = true
+             audioSegmentedControl.selectedSegmentTintColor = lightOptiviewAccentColor
          default:
              break
          }
          calculateStorage()
-    }
-    
-    // Optiview link button tapped
-    @IBAction func didTapOptiviewLink(sender: UIButton) {
-        
-        if let url = URL(string: "https://www.optiviewusa.com") {
-            UIApplication.shared.open(url)
-        }
     }
     
     // Total days stepper changed
@@ -109,8 +109,10 @@ class CalculateStorageViewController: UIViewController {
          {
          case 0:
              motionDetectOn = false
+             motionDetectSegmentedControl.selectedSegmentTintColor = .none
          case 1:
              motionDetectOn = true
+             motionDetectSegmentedControl.selectedSegmentTintColor = lightOptiviewAccentColor
          default:
              break
          }
@@ -145,8 +147,10 @@ class CalculateStorageViewController: UIViewController {
          {
         case 0:
             compression = 1.0
+            compressionSegmentedControl.selectedSegmentTintColor = .none
         case 1:
             compression = 1.30
+            compressionSegmentedControl.selectedSegmentTintColor = lightOptiviewAccentColor
         default:
             break
          }
@@ -167,7 +171,6 @@ class CalculateStorageViewController: UIViewController {
         setupText()
         setupSteppers()
         setupAccentColors()
-        setupOptiviewButton()
     }
     
     // Create function to disable text fields
@@ -198,14 +201,13 @@ class CalculateStorageViewController: UIViewController {
         totalCamerasStepper.setIncrementImage(
             totalCamerasStepper.incrementImage(for: .normal), for: .normal)
     
-        totalCamerasStepper.tintColor = accentColor
-        totalDaysStepper.tintColor = accentColor
-        totalHoursStepper.tintColor = accentColor
-    }
-    
-    func setupOptiviewButton() {
-        optiviewUSAButton.backgroundColor = .systemBlue
-        optiviewUSAButton.layer.cornerRadius = 5
+        totalCamerasStepper.tintColor = optiviewAccentColor
+        totalDaysStepper.tintColor = optiviewAccentColor
+        totalHoursStepper.tintColor = optiviewAccentColor
+        framesPerSecondSlider.tintColor = optiviewAccentColor
+        framesPerSecondSlider.thumbTintColor = optiviewAccentColor
+        framesPerSecondSlider.thumbImage(for: .normal)
+        megapixelSelectedSegementedControl.selectedSegmentTintColor = lightOptiviewAccentColor
     }
     
     // Setup text fields
@@ -266,11 +268,13 @@ class CalculateStorageViewController: UIViewController {
          // If motion detect is on, divide total GB by 1.35
          if motionDetectOn == true {
             storageGB = storageGB / 1.35
+            
          }
         
          // If audio is on, multiply total GB by 1.02
          if audioOn == true {
             storageGB = storageGB * 1.02
+            motionDetectSegmentedControl.tintColor = .clear
             
          }
          
@@ -281,6 +285,7 @@ class CalculateStorageViewController: UIViewController {
              
            totalStorageLabel.text = "\(storageTB) TB"
          } else {
+            storageGB = storageGB.rounded(.up)
              totalStorageLabel.text = "\(storageGB) GB"
          }
     }
