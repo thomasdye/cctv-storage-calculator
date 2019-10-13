@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE3DC9CB235123C200BE204F /* OptiviewWebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DC9CA235123C200BE204F /* OptiviewWebsiteViewController.swift */; };
+		CE3DC9CB235123C200BE204F /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DC9CA235123C200BE204F /* WebsiteViewController.swift */; };
+		CE3DC9ED235365E700BE204F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DC9EC235365E700BE204F /* ContactViewController.swift */; };
 		CE3EA6FC234CE380004A4864 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA6FB234CE380004A4864 /* TabBarController.swift */; };
 		CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */; };
 		CE3EA702234CE889004A4864 /* LensCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */; };
@@ -19,7 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE3DC9CA235123C200BE204F /* OptiviewWebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptiviewWebsiteViewController.swift; sourceTree = "<group>"; };
+		CE3DC9CA235123C200BE204F /* WebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
+		CE3DC9EC235365E700BE204F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		CE3EA6FB234CE380004A4864 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateStorageViewController.swift; sourceTree = "<group>"; };
 		CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensCalculatorViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +50,8 @@
 			children = (
 				CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */,
 				CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */,
-				CE3DC9CA235123C200BE204F /* OptiviewWebsiteViewController.swift */,
+				CE3DC9CA235123C200BE204F /* WebsiteViewController.swift */,
+				CE3DC9EC235365E700BE204F /* ContactViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -180,9 +183,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3EA6FC234CE380004A4864 /* TabBarController.swift in Sources */,
+				CE3DC9ED235365E700BE204F /* ContactViewController.swift in Sources */,
 				CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,
-				CE3DC9CB235123C200BE204F /* OptiviewWebsiteViewController.swift in Sources */,
+				CE3DC9CB235123C200BE204F /* WebsiteViewController.swift in Sources */,
 				CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */,
 				CE3EA702234CE889004A4864 /* LensCalculatorViewController.swift in Sources */,
 			);

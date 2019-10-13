@@ -28,14 +28,14 @@ class CalculateStorageViewController: UIViewController {
     
     // Defining variables and constants
     var totalCameras: Int = 0
-    var camBitrate: Int = FrameSize.twoMegapixel.rawValue
+    var cameraBitrate: Int = FrameSize.twoMegapixel.rawValue
     var totalDays: Int = 30
     var totalHours: Int = 24
     var motionDetectOn: Bool = false
     var audioOn: Bool = false
-    var storageGB: Double = 0
+    var storageGB: Double = 0.0
     var storageTB: Double = 0.0
-    var compression: Double = 1.0
+    var compression: Double = CompressionMethod.h264.rawValue
     var framesPerSecond: Int = 7
     let convertSecondsToHour: Int = 3600
     let optiviewAccentColor: UIColor = UIColor(hue: 0.5889,
@@ -54,6 +54,11 @@ class CalculateStorageViewController: UIViewController {
         case fourMegapixel = 36
         case fiveMegapixel = 46
         case eightMegapixel = 72
+    }
+    
+    enum CompressionMethod: Double {
+        case h264 = 1.0
+        case h265 = 1.3
     }
 
     // View loaded. Call setup and calculateStorage functions
@@ -125,15 +130,15 @@ class CalculateStorageViewController: UIViewController {
         switch megapixelSelectedSegementedControl.selectedSegmentIndex
          {
         case 0:
-            camBitrate = FrameSize.twoMegapixel.rawValue
+            cameraBitrate = FrameSize.twoMegapixel.rawValue
         case 1:
-            camBitrate = FrameSize.threeMegapixel.rawValue
+            cameraBitrate = FrameSize.threeMegapixel.rawValue
         case 2:
-            camBitrate = FrameSize.fourMegapixel.rawValue
+            cameraBitrate = FrameSize.fourMegapixel.rawValue
         case 3:
-            camBitrate = FrameSize.fiveMegapixel.rawValue
+            cameraBitrate = FrameSize.fiveMegapixel.rawValue
         case 4:
-            camBitrate = FrameSize.eightMegapixel.rawValue
+            cameraBitrate = FrameSize.eightMegapixel.rawValue
         default:
             break
          }
@@ -146,10 +151,10 @@ class CalculateStorageViewController: UIViewController {
         switch compressionSegmentedControl.selectedSegmentIndex
          {
         case 0:
-            compression = 1.0
+            compression = CompressionMethod.h264.rawValue
             compressionSegmentedControl.selectedSegmentTintColor = .none
         case 1:
-            compression = 1.30
+            compression = CompressionMethod.h265.rawValue
             compressionSegmentedControl.selectedSegmentTintColor = lightOptiviewAccentColor
         default:
             break
@@ -219,6 +224,7 @@ class CalculateStorageViewController: UIViewController {
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"
         
+        // change font color of text fields
         totalCamerasTextField.textColor = lightOptiviewAccentColor
         totalDaysTextField.textColor = lightOptiviewAccentColor
         totalHoursTextField.textColor = lightOptiviewAccentColor
@@ -277,7 +283,7 @@ class CalculateStorageViewController: UIViewController {
          
          // Calculate total frame size per second
          // ex: 7 (FPS) * 50KB (twoMegapixel) = 350KB/s
-         let totalFrameSizePerSecond = (framesPerSecond * camBitrate)
+         let totalFrameSizePerSecond = (framesPerSecond * cameraBitrate)
          
          // Example: 350KB/s * 3600 (seconds/hour) = 1_260_000KB/hr
          let totalSizePerHour = totalFrameSizePerSecond * convertSecondsToHour
