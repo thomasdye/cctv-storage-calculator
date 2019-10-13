@@ -49,11 +49,11 @@ class CalculateStorageViewController: UIViewController {
     
     // CameraBitrate enum to use in calculation
     enum FrameSize: Int {
-        case twoMegapixel = 15
-        case threeMegapixel = 20
-        case fourMegapixel = 25
-        case fiveMegapixel = 30
-        case eightMegapixel = 50
+        case twoMegapixel = 20
+        case threeMegapixel = 26
+        case fourMegapixel = 36
+        case fiveMegapixel = 46
+        case eightMegapixel = 72
     }
 
     // View loaded. Call setup and calculateStorage functions
@@ -205,18 +205,24 @@ class CalculateStorageViewController: UIViewController {
         totalDaysStepper.tintColor = optiviewAccentColor
         totalHoursStepper.tintColor = optiviewAccentColor
         framesPerSecondSlider.tintColor = optiviewAccentColor
-        framesPerSecondSlider.thumbTintColor = optiviewAccentColor
+        framesPerSecondSlider.thumbTintColor = lightOptiviewAccentColor
         framesPerSecondSlider.thumbImage(for: .normal)
         megapixelSelectedSegementedControl.selectedSegmentTintColor = lightOptiviewAccentColor
     }
     
     // Setup text fields
     func setupText() {
+        
         // text field and label setup
         totalCamerasTextField.text = "8"
         totalDaysTextField.text = "30"
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"
+        
+        totalCamerasTextField.textColor = lightOptiviewAccentColor
+        totalDaysTextField.textColor = lightOptiviewAccentColor
+        totalHoursTextField.textColor = lightOptiviewAccentColor
+        totalStorageLabel.textColor = lightOptiviewAccentColor
         
         // disable text fields so you can't select them
         disableTextFields(named: totalCamerasTextField)
@@ -227,19 +233,40 @@ class CalculateStorageViewController: UIViewController {
     
     // Setup steppers
     func setupSteppers() {
+        
+        // setupSteppers
+        setupTotalCamerasStepper()
+        setupTotalDaysStepper()
+        setupTotalHoursStepper()
+    }
+    
+    func setupTotalCamerasStepper() {
+        
         // totalCamerasStepper setup
         totalCamerasStepper.value = 8
         totalCamerasStepper.minimumValue = 1
+        totalCamerasStepper.maximumValue = 128
+        totalCamerasStepper.wraps = true
+    }
+    
+    func setupTotalDaysStepper() {
         
         // totalDaysStepper setup
         totalDaysStepper.value = 30
         totalDaysStepper.minimumValue = 1
+        totalDaysStepper.maximumValue = 365
+        totalDaysStepper.wraps = true
+        
+    }
+    
+    func setupTotalHoursStepper() {
         
         // totalHoursStepper setup
         totalHoursStepper.value = 24
+        totalHoursStepper.minimumValue = 1
         totalHoursStepper.maximumValue = 24
         totalHoursStepper.wraps = true
-        totalHoursStepper.minimumValue = 1
+        
     }
     
     // Create calculate storage function
@@ -252,11 +279,11 @@ class CalculateStorageViewController: UIViewController {
          // ex: 7 (FPS) * 50KB (twoMegapixel) = 350KB/s
          let totalFrameSizePerSecond = (framesPerSecond * camBitrate)
          
-         // ex 350KB/s * 3600 (seconds/hour) = 1_260_000KB/hr
-         let totalSizePerHour = totalFrameSizePerSecond * 3600
+         // Example: 350KB/s * 3600 (seconds/hour) = 1_260_000KB/hr
+         let totalSizePerHour = totalFrameSizePerSecond * convertSecondsToHour
          
          // Calculate storage in GB
-         // ex (1,260,000 * 30 * 24) = 907,200,000 / 1,000,000
+         // Example: (1,260,000 * 30 * 24) = 907,200,000 / 1,000,000
          storageGB = Double((totalSizePerHour * totalDays * totalHours) / 1_000_000)
          
          // Multiplying total storage calculated per camera times the total number of cameras
@@ -271,22 +298,20 @@ class CalculateStorageViewController: UIViewController {
             
          }
         
-         // If audio is on, multiply total GB by 1.02
+         // If audio is on, multiply total GB by 1.04
          if audioOn == true {
-            storageGB = storageGB * 1.02
-            motionDetectSegmentedControl.tintColor = .clear
-            
+            storageGB = storageGB * 1.04
          }
          
          // Then, if storage in GB is greater than 1000GB (1TB), calculate storage in TB
          if storageGB >= 1000 {
-             storageTB = storageTB / compression
-             storageTB = (storageGB / 1000).rounded(.up)
+            storageTB = storageTB / compression
+            storageTB = (storageGB / 1000).rounded(.up)
              
            totalStorageLabel.text = "\(storageTB) TB"
          } else {
             storageGB = storageGB.rounded(.up)
-             totalStorageLabel.text = "\(storageGB) GB"
+            totalStorageLabel.text = "\(storageGB) GB"
          }
     }
 }
