@@ -1,5 +1,5 @@
 //
-//  OptiviewWebsiteViewController.swift
+//  WebsiteViewController.swift
 //  CCTV Storage Calculator
 //
 //  Created by Casualty on 10/11/19.
@@ -9,13 +9,11 @@
 import UIKit
 import WebKit
 
-class OptiviewWebsiteViewController: UIViewController, WKNavigationDelegate {
-    
+class WebsiteViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     
     override func loadView() {
-        
         webView = WKWebView()
         webView.navigationDelegate = self
         view = webView

@@ -271,7 +271,7 @@
         <!--Website-->
         <scene sceneID="fBZ-6C-bLB">
             <objects>
-                <viewController id="aAR-Q5-F4e" customClass="OptiviewWebsiteViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aAR-Q5-F4e" customClass="WebsiteViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZtR-zL-Lp4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -331,13 +331,13 @@
         <!--Contact-->
         <scene sceneID="Hxm-ir-7zK">
             <objects>
-                <viewController id="xyf-Hz-672" sceneMemberID="viewController">
+                <viewController id="xyf-Hz-672" customClass="ContactViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fi8-0B-Hsl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="qwL-iV-8QN">
-                                <rect key="frame" x="15" y="44" width="384" height="355"/>
+                                <rect key="frame" x="15" y="44" width="384" height="649"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optiview-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bk9-gP-hsY">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="331"/>
@@ -348,6 +348,95 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uW3-tt-aLy">
+                                        <rect key="frame" x="0.0" y="367" width="384" height="150"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgb-Z2-yoA">
+                                                <rect key="frame" x="0.0" y="0.0" width="184.5" height="150"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eiM-jo-3hL">
+                                                <rect key="frame" x="199.5" y="0.0" width="184.5" height="150"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </mapView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="4Bg-5T-P2l"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-rp-Qmf">
+                                        <rect key="frame" x="0.0" y="529" width="384" height="120"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Atq-SW-AKN">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="120"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEs-RZ-14y">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3t-c5-FiO">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="salesPhoneNumberButtonTapped:" destination="xyf-Hz-672" eventType="touchUpInside" id="zxG-Z8-Obm"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7x-6u-UKg">
+                                                        <rect key="frame" x="0.0" y="60" width="187" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncw-n6-Dhq">
+                                                        <rect key="frame" x="0.0" y="90" width="187" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="techSupportPhoneNumberTapped:" destination="xyf-Hz-672" eventType="touchUpInside" id="ajY-aE-iHk"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Yeb-c2-hir">
+                                                <rect key="frame" x="197" y="0.0" width="187" height="120"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoz-7y-OeO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mao-xa-Bcc">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="salesEmailButtonTapped:" destination="xyf-Hz-672" eventType="touchUpInside" id="T0a-kV-i1F"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPi-g2-bvm">
+                                                        <rect key="frame" x="0.0" y="60" width="187" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEb-MW-670">
+                                                        <rect key="frame" x="0.0" y="90" width="187" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="techSupportEmailButtonTapped:" destination="xyf-Hz-672" eventType="touchUpInside" id="h3N-fW-5Bn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -360,6 +449,18 @@
                         <viewLayoutGuide key="safeArea" id="OnR-hF-HAZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contact" image="person" catalog="system" id="lsx-6V-6KF"/>
+                    <connections>
+                        <outlet property="locationLabel" destination="Jgb-Z2-yoA" id="l9R-Ny-WOt"/>
+                        <outlet property="mapView" destination="eiM-jo-3hL" id="cVm-8I-xgp"/>
+                        <outlet property="salesEmailButton" destination="mao-xa-Bcc" id="MyM-ON-RPM"/>
+                        <outlet property="salesEmailTitleLabel" destination="Aoz-7y-OeO" id="5fh-eX-10m"/>
+                        <outlet property="salesPhoneButton" destination="q3t-c5-FiO" id="wIy-bZ-lh6"/>
+                        <outlet property="salesPhoneLabel" destination="TEs-RZ-14y" id="XeJ-Qm-PSc"/>
+                        <outlet property="techSupportEmailButton" destination="OEb-MW-670" id="UpX-g8-crm"/>
+                        <outlet property="techSupportEmailTitleLabel" destination="aPi-g2-bvm" id="ZYC-bH-Rsm"/>
+                        <outlet property="techSupportPhoneButton" destination="ncw-n6-Dhq" id="ex6-39-BC5"/>
+                        <outlet property="techSupportPhoneLabel" destination="X7x-6u-UKg" id="PWz-4W-XXE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OxN-Y9-JnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
