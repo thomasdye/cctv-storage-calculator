@@ -13,7 +13,7 @@ import MessageUI
 class ContactViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var navigateAddressButton: UIButton!
     @IBOutlet weak var salesPhoneLabel: UILabel!
     @IBOutlet weak var techSupportPhoneLabel: UILabel!
     @IBOutlet weak var salesPhoneButton: UIButton!
@@ -23,6 +23,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var salesEmailButton: UIButton!
     @IBOutlet weak var techSupportEmailButton: UIButton!
 
+    @IBOutlet weak var locationLabel: UILabel!
     let optiviewLocation = CLLocation(latitude: 30.296767,
                                       longitude: -81.611463)
     
@@ -41,6 +42,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
                           animated: true)
     }
     
+    // View did load
     override func viewDidLoad() {
         super.viewDidLoad()
         setupText()
@@ -48,7 +50,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         centerOptiviewLocation()
     }
     
-    // Setup texth
+    // Setup text
     func setupText() {
         
         // Sales Phone
@@ -71,7 +73,12 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         techSupportEmailButton.setTitle("tech@optiviewusa.com", for: .normal)
         techSupportEmailTitleLabel.text = "Tech Support"
         
-        // Address
+        // Address button
+        navigateAddressButton.setTitle("Navigate", for: .normal)
+        
+        // Location label
+        locationLabel.textAlignment = .center
+        locationLabel.numberOfLines = 0
         locationLabel.text = "5211 Fairmont St.\nJacksonville, FL\n32207"
     }
     
@@ -109,6 +116,13 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     func callTechSupportPhoneNumber()  {
         let url: NSURL = URL(string: "TEL://9048551121")! as NSURL
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
+    
+    // Create button for when address button is tapped
+    func addressButtonTapped() {
+        let url: NSURL = URL(string: "https://maps.apple.com/?address=5211%20Fairmont%20St,%20Jacksonville,%20FL%20%2032207,%20United%20States&ll=30.296857,-81.611421&q=5211%20Fairmont%20St&_ext=EiYpNcHcddhKPkAx322NwHZnVMA5MWwoLiVNPkBBWR2KSsxmVMBQAw%3D%3D")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        
     }
     
     // Create function to email sales
@@ -229,6 +243,11 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion:nil)
 
+    }
+    
+    // Call addressButtonTapped() function when button pressed
+    @IBAction func navigateAddressButtonTapped(_ sender: UIButton) {
+        addressButtonTapped()
     }
     
     // Sales phone number tapped

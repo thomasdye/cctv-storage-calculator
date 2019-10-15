@@ -348,22 +348,39 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uW3-tt-aLy">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uW3-tt-aLy">
                                         <rect key="frame" x="0.0" y="367" width="384" height="150"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgb-Z2-yoA">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-40" translatesAutoresizingMaskIntoConstraints="NO" id="JsO-jd-1eg">
                                                 <rect key="frame" x="0.0" y="0.0" width="184.5" height="150"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Tz-IT-Rz0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="184.5" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJP-ph-5rw">
+                                                        <rect key="frame" x="0.0" y="-16" width="184.5" height="166"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="navigateAddressButtonTapped:" destination="xyf-Hz-672" eventType="touchUpInside" id="Hkv-rO-3Nz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eiM-jo-3hL">
                                                 <rect key="frame" x="199.5" y="0.0" width="184.5" height="150"/>
+                                                <gestureRecognizers/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="3eS-9Y-S9Y" appends="YES" id="W9p-lh-qzl"/>
+                                                </connections>
                                             </mapView>
                                         </subviews>
                                         <constraints>
@@ -450,8 +467,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Contact" image="person" catalog="system" id="lsx-6V-6KF"/>
                     <connections>
-                        <outlet property="locationLabel" destination="Jgb-Z2-yoA" id="l9R-Ny-WOt"/>
+                        <outlet property="locationLabel" destination="7Tz-IT-Rz0" id="qWz-Uu-vrx"/>
                         <outlet property="mapView" destination="eiM-jo-3hL" id="cVm-8I-xgp"/>
+                        <outlet property="navigateAddressButton" destination="ZJP-ph-5rw" id="KOC-e4-XxI"/>
                         <outlet property="salesEmailButton" destination="mao-xa-Bcc" id="MyM-ON-RPM"/>
                         <outlet property="salesEmailTitleLabel" destination="Aoz-7y-OeO" id="5fh-eX-10m"/>
                         <outlet property="salesPhoneButton" destination="q3t-c5-FiO" id="wIy-bZ-lh6"/>
@@ -463,6 +481,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OxN-Y9-JnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="3eS-9Y-S9Y"/>
             </objects>
             <point key="canvasLocation" x="1838" y="844"/>
         </scene>
