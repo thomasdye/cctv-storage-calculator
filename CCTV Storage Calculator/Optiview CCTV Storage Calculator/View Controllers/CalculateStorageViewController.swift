@@ -11,7 +11,7 @@ import Foundation
 
 class CalculateStorageViewController: UIViewController {
     
-    // Adding outlets
+    // MARK: Outlets
     @IBOutlet weak var totalStorageLabel: UILabel!
     @IBOutlet weak var totalCamerasTextField: UITextField!
     @IBOutlet weak var megapixelSelectedSegementedControl: UISegmentedControl!
@@ -26,7 +26,7 @@ class CalculateStorageViewController: UIViewController {
     @IBOutlet weak var framesPerSecondLabel: UILabel!
     @IBOutlet weak var audioSegmentedControl: UISegmentedControl!
     
-    // Defining variables and constants
+    // MARK: Variables and Constants
     var totalCameras: Int = 0
     var cameraBitrate: Int = FrameSize.twoMegapixel.rawValue
     var totalDays: Int = 30
@@ -70,6 +70,81 @@ class CalculateStorageViewController: UIViewController {
         calculateStorage()
 
     }
+    
+    // MARK: Functions
+    
+    // Create setup function for easier editing later
+    func setup() {
+        
+        setDefaultText()
+        setupSteppers()
+        changeLabelTextColor()
+        changeTextFieldColor()
+        changeStepperTintColor()
+        changeSliderTintColor()
+        changeSegmentedControlTintColor()
+    }
+    
+    // Set variables equal to text fields
+    func retreiveValues() {
+        
+        guard let hoursTextField = totalHoursTextField?.text, let camerasTextField = totalCamerasTextField.text, let daysTextField = totalDaysTextField.text else { return }
+            
+            
+        totalHours = Int(hoursTextField) ?? 1
+        totalCameras = Int(camerasTextField) ?? 1
+        totalDays = Int(daysTextField) ?? 1
+    }
+
+    // Setup text fields
+    func setDefaultText() {
+        
+        // Text field and label default text
+        totalCamerasTextField.text = "8"
+        totalDaysTextField.text = "30"
+        totalHoursTextField.text = "24"
+        totalStorageLabel.text = "0 TB"
+        
+    }
+    
+    // Setup steppers
+    func setupSteppers() {
+
+        setupTotalCamerasStepper()
+        setupTotalDaysStepper()
+        setupTotalHoursStepper()
+    }
+    
+    // Total cameras stepper setup
+    func setupTotalCamerasStepper() {
+        
+        totalCamerasStepper.value = 8
+        totalCamerasStepper.minimumValue = 1
+        totalCamerasStepper.maximumValue = 128
+        totalCamerasStepper.wraps = true
+    }
+    
+    // Total days stepper setup
+    func setupTotalDaysStepper() {
+        
+        totalDaysStepper.value = 30
+        totalDaysStepper.minimumValue = 1
+        totalDaysStepper.maximumValue = 365
+        totalDaysStepper.wraps = true
+        
+    }
+    
+    // Total hours stepper setup
+    func setupTotalHoursStepper() {
+        
+        totalHoursStepper.value = 24
+        totalHoursStepper.minimumValue = 1
+        totalHoursStepper.maximumValue = 24
+        totalHoursStepper.wraps = true
+        
+    }
+    
+    // MARK: IBActions
     
     // Total cameras stepper changed
     @IBAction func totalCamerasStepperPressed(_ sender: UIStepper) {
@@ -172,76 +247,8 @@ class CalculateStorageViewController: UIViewController {
         framesPerSecondLabel.text = "FPS: \(framesPerSecond)"
     }
     
-    // Create setup function for easier editing later
-    func setup() {
-        
-        setDefaultText()
-        setupSteppers()
-        changeLabelTextColor()
-        changeTextFieldColor()
-        changeStepperTintColor()
-        changeSliderTintColor()
-    }
+    // MARK: Calculate storage function
     
-    // Set variables equal to text fields
-    func retreiveValues() {
-        
-        guard let hoursTextField = totalHoursTextField?.text, let camerasTextField = totalCamerasTextField.text, let daysTextField = totalDaysTextField.text else { return }
-            
-            
-        totalHours = Int(hoursTextField) ?? 1
-        totalCameras = Int(camerasTextField) ?? 1
-        totalDays = Int(daysTextField) ?? 1
-    }
-
-    // Setup text fields
-    func setDefaultText() {
-        
-        // Text field and label default text
-        totalCamerasTextField.text = "8"
-        totalDaysTextField.text = "30"
-        totalHoursTextField.text = "24"
-        totalStorageLabel.text = "0 TB"
-        
-    }
-    
-    // Setup steppers
-    func setupSteppers() {
-
-        setupTotalCamerasStepper()
-        setupTotalDaysStepper()
-        setupTotalHoursStepper()
-    }
-    
-    // Total cameras stepper setup
-    func setupTotalCamerasStepper() {
-        
-        totalCamerasStepper.value = 8
-        totalCamerasStepper.minimumValue = 1
-        totalCamerasStepper.maximumValue = 128
-        totalCamerasStepper.wraps = true
-    }
-    
-    // Total days stepper setup
-    func setupTotalDaysStepper() {
-        
-        totalDaysStepper.value = 30
-        totalDaysStepper.minimumValue = 1
-        totalDaysStepper.maximumValue = 365
-        totalDaysStepper.wraps = true
-        
-    }
-    
-    // Total hours stepper setup
-    func setupTotalHoursStepper() {
-        
-        totalHoursStepper.value = 24
-        totalHoursStepper.minimumValue = 1
-        totalHoursStepper.maximumValue = 24
-        totalHoursStepper.wraps = true
-        
-    }
-
     // Create calculate storage function
     func calculateStorage() {
         

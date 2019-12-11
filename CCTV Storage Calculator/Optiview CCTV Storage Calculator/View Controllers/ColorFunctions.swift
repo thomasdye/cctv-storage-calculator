@@ -18,9 +18,12 @@ extension CalculateStorageViewController {
                                             totalHoursTextField]
         
         for textField in arrayOfLabels {
-            textField.textColor = lightAccentColor
+            textField.textColor = darkAccentColor
             textField.isEnabled = false
         }
+    }
+    
+    func changeSegmentedControlTintColor() {
         megapixelSelectedSegementedControl.selectedSegmentTintColor = lightAccentColor
     }
     
