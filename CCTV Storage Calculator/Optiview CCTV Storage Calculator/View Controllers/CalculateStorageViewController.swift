@@ -68,6 +68,7 @@ class CalculateStorageViewController: UIViewController {
 
         setup()
         calculateStorage()
+
     }
     
     // Total cameras stepper changed
@@ -176,7 +177,9 @@ class CalculateStorageViewController: UIViewController {
         
         setupText()
         setupSteppers()
-        setupAccentColors()
+        changeTextFieldColor()
+        changeStepperTintColor()
+        changeSliderTintColor()
     }
     
     // Create function to disable text fields
@@ -191,30 +194,7 @@ class CalculateStorageViewController: UIViewController {
         totalDays = Int(totalDaysTextField.text!)!
     }
     
-    // Setup accent colors
-    func setupAccentColors() {
-        
-        totalHoursStepper.setDecrementImage(
-            totalHoursStepper.decrementImage(for: .normal),for: .normal)
-        totalHoursStepper.setIncrementImage(
-            totalHoursStepper.incrementImage(for: .normal), for: .normal)
-        totalDaysStepper.setDecrementImage(
-            totalDaysStepper.decrementImage(for: .normal), for: .normal)
-        totalDaysStepper.setIncrementImage(
-            totalDaysStepper.incrementImage(for: .normal), for: .normal)
-        totalCamerasStepper.setDecrementImage(
-            totalCamerasStepper.decrementImage(for: .normal), for: .normal)
-        totalCamerasStepper.setIncrementImage(
-            totalCamerasStepper.incrementImage(for: .normal), for: .normal)
-        
-        totalCamerasStepper.tintColor = darkAccentColor
-        totalDaysStepper.tintColor = darkAccentColor
-        totalHoursStepper.tintColor = darkAccentColor
-        framesPerSecondSlider.tintColor = darkAccentColor
-        framesPerSecondSlider.thumbTintColor = lightAccentColor
-        framesPerSecondSlider.thumbImage(for: .normal)
-        megapixelSelectedSegementedControl.selectedSegmentTintColor = lightAccentColor
-    }
+
     
     // Setup text fields
     func setupText() {
@@ -225,24 +205,11 @@ class CalculateStorageViewController: UIViewController {
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"
         
-        // Change font color of text fields
-        changeTextFieldColorToLightAccentColor(textField: totalCamerasTextField)
-        changeTextFieldColorToLightAccentColor(textField: totalDaysTextField)
-        changeTextFieldColorToLightAccentColor(textField: totalHoursTextField)
-        
-        // Change font color of label
-        changeLabelTextColorToLightAccentColor(label: totalStorageLabel)
-        
         // Disable text fields so you can't select them
         disableTextFields(named: totalCamerasTextField)
         disableTextFields(named: totalDaysTextField)
         disableTextFields(named: totalHoursTextField)
-
-    }
-    
-    // Create function to change textField textColor to lightAccentColor
-    func changeTextFieldColorToLightAccentColor(textField: UITextField) {
-        textField.textColor = lightAccentColor
+        
     }
     
     // Create function to change label textColor to lightAccentColor
@@ -286,6 +253,9 @@ class CalculateStorageViewController: UIViewController {
         totalHoursStepper.wraps = true
         
     }
+    
+    // Change text field color
+
     
     // Create calculate storage function
     func calculateStorage() {
