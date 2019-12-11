@@ -22,13 +22,16 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var techSupportEmailTitleLabel: UILabel!
     @IBOutlet weak var salesEmailButton: UIButton!
     @IBOutlet weak var techSupportEmailButton: UIButton!
-
     @IBOutlet weak var locationLabel: UILabel!
     let optiviewLocation = CLLocation(latitude: 30.296767,
                                       longitude: -81.611463)
     
+    let optiviewAddressLink = "https://maps.apple.com/?address=5211%20Fairmont%20St,%20Jacksonville,%20FL%20%2032207,%20United%20States&ll=30.296857,-81.611421&q=5211%20Fairmont%20St&_ext=EiYpNcHcddhKPkAx322NwHZnVMA5MWwoLiVNPkBBWR2KSsxmVMBQAw%3D%3D"
+    
     // Create function to center map
     func centerMapOnLocation(location: CLLocation) {
+        
+        
         let regionRadius: CLLocationDistance = 750
         let mapPin = MapPin(title: "Optiview",
           locationName: "5211 Fairmont Street",
@@ -54,29 +57,65 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     func setupText() {
         
         // Sales Phone
+        setupSalesPhoneText()
+        
+        // Sales Email
+        setupSalesEmailText()
+        
+        // Tech Support Phone
+        setupTechSupportPhoneText()
+        
+        // Tech Support Email
+        setupTechSupportEmailText()
+        
+        // Address Button
+        setupAddressButtonText()
+        
+        // Location Label
+        setupLocationLabelText()
+    }
+    
+    func setupSalesPhoneText() {
+        
+        // Sales Phone
         salesPhoneLabel.textAlignment = .center
         salesPhoneLabel.text = "Sales"
         salesPhoneButton.setTitle("(904)-805-1581", for: .normal)
+    }
+    
+    func setupSalesEmailText() {
         
         // Sales Email
         salesEmailTitleLabel.textAlignment = .center
         salesEmailButton.setTitle("sales@optiviewusa.com", for: .normal)
         salesEmailTitleLabel.text = "Sales"
+    }
+    
+    func setupTechSupportPhoneText() {
         
         // Tech Support Phone
         techSupportPhoneLabel.textAlignment = .center
         techSupportPhoneLabel.text = "Tech Support"
         techSupportPhoneButton.setTitle("(904)-855-1121", for: .normal)
+    }
+    
+    func setupTechSupportEmailText() {
         
         // Tech Support Email
         techSupportEmailTitleLabel.textAlignment = .center
         techSupportEmailButton.setTitle("tech@optiviewusa.com", for: .normal)
         techSupportEmailTitleLabel.text = "Tech Support"
+    }
+    
+    func setupAddressButtonText() {
         
-        // Address button
+        // Navigation Button Title
         navigateAddressButton.setTitle("Navigate", for: .normal)
+    }
+    
+    func setupLocationLabelText() {
         
-        // Location label
+        // Location Label
         locationLabel.textAlignment = .center
         locationLabel.numberOfLines = 0
         locationLabel.text = "5211 Fairmont St.\nJacksonville, FL\n32207"
@@ -120,7 +159,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     
     // Create button for when address button is tapped
     func addressButtonTapped() {
-        let url: NSURL = URL(string: "https://maps.apple.com/?address=5211%20Fairmont%20St,%20Jacksonville,%20FL%20%2032207,%20United%20States&ll=30.296857,-81.611421&q=5211%20Fairmont%20St&_ext=EiYpNcHcddhKPkAx322NwHZnVMA5MWwoLiVNPkBBWR2KSsxmVMBQAw%3D%3D")! as NSURL
+        let url: NSURL = URL(string: optiviewAddressLink)! as NSURL
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         
     }
@@ -269,7 +308,6 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBAction func techSupportEmailButtonTapped(_ sender: UIButton) {
         emailTechSupport()
     }
-    
     
     // Create a class MapPin for annotation on map
     class MapPin: NSObject, MKAnnotation {

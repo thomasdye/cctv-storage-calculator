@@ -275,13 +275,33 @@
                     <view key="view" contentMode="scaleToFill" id="ZtR-zL-Lp4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJ4-nV-krf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YJ4-nV-krf" firstAttribute="bottom" secondItem="ahz-qR-Vs2" secondAttribute="bottom" id="8BI-TX-lGU"/>
+                            <constraint firstItem="YJ4-nV-krf" firstAttribute="top" secondItem="ahz-qR-Vs2" secondAttribute="top" id="eFW-C6-04b"/>
+                            <constraint firstItem="YJ4-nV-krf" firstAttribute="trailing" secondItem="ahz-qR-Vs2" secondAttribute="trailing" id="eZm-w0-7Jv"/>
+                            <constraint firstItem="YJ4-nV-krf" firstAttribute="leading" secondItem="ahz-qR-Vs2" secondAttribute="leading" id="fSZ-gu-j8D"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ahz-qR-Vs2"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Website" image="globe" catalog="system" selectedImage="globe" id="Ij8-yx-vrW"/>
+                    <connections>
+                        <outlet property="webView" destination="YJ4-nV-krf" id="BLX-4T-ddw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXm-td-Ms9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="844"/>
+            <point key="canvasLocation" x="137.68115942028987" y="843.75"/>
         </scene>
         <!--Lens Calculator-->
         <scene sceneID="yM7-7C-iJZ">
@@ -499,6 +519,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="HE8-UR-bfB"/>
                         <segue destination="EPf-03-ucR" kind="relationship" relationship="viewControllers" id="7RG-x4-utw"/>
                         <segue destination="xyf-Hz-672" kind="relationship" relationship="viewControllers" id="lp2-VH-Vmi"/>
+                        <segue destination="aAR-Q5-F4e" kind="relationship" relationship="viewControllers" id="vJr-Ci-w7u"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQM-sk-Z2R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
