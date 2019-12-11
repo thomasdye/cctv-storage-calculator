@@ -41,6 +41,7 @@ extension CalculateStorageViewController {
         }
     }
     
+    // Change slider tint color
     func changeSliderTintColor() {
         let arrayOfSliders: [UISlider] = [framesPerSecondSlider]
         
@@ -51,6 +52,7 @@ extension CalculateStorageViewController {
         }
     }
     
+    // Change label text color
     func changeLabelTextColor() {
         let arrayOfLabels: [UILabel] = [totalStorageLabel]
         
