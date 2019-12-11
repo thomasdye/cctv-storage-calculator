@@ -19,8 +19,8 @@ extension CalculateStorageViewController {
         
         for textField in arrayOfLabels {
             textField.textColor = lightAccentColor
+            textField.isEnabled = false
         }
-        totalStorageLabel.textColor = lightAccentColor
         megapixelSelectedSegementedControl.selectedSegmentTintColor = lightAccentColor
     }
     
@@ -44,6 +44,14 @@ extension CalculateStorageViewController {
             slider.tintColor = darkAccentColor
             slider.thumbTintColor = lightAccentColor
             slider.thumbImage(for: .normal)
+        }
+    }
+    
+    func changeLabelTextColor() {
+        let arrayOfLabels: [UILabel] = [totalStorageLabel]
+        
+        for label in arrayOfLabels {
+            label.textColor = lightAccentColor
         }
     }
 }

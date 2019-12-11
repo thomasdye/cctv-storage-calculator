@@ -166,55 +166,43 @@ class CalculateStorageViewController: UIViewController {
     
     // FPS slider changed
     @IBAction func framesPerSecondSliderChanged(_ sender: UISlider) {
+        
         calculateStorage()
         framesPerSecond = Int(sender.value)
         framesPerSecondLabel.text = "FPS: \(framesPerSecond)"
-        
     }
     
     // Create setup function for easier editing later
     func setup() {
         
-        setupText()
+        setDefaultText()
         setupSteppers()
+        changeLabelTextColor()
         changeTextFieldColor()
         changeStepperTintColor()
         changeSliderTintColor()
     }
     
-    // Create function to disable text fields
-    func disableTextFields(named: UITextField) {
-        named.isEnabled = false
-    }
-    
     // Set variables equal to text fields
     func retreiveValues() {
-        totalHours = Int(totalHoursTextField.text!)!
-        totalCameras = Int(totalCamerasTextField.text!)!
-        totalDays = Int(totalDaysTextField.text!)!
-    }
-    
-
-    
-    // Setup text fields
-    func setupText() {
         
-        // Text field and label setup
+        guard let hoursTextField = totalHoursTextField?.text, let camerasTextField = totalCamerasTextField.text, let daysTextField = totalDaysTextField.text else { return }
+            
+            
+        totalHours = Int(hoursTextField) ?? 1
+        totalCameras = Int(camerasTextField) ?? 1
+        totalDays = Int(daysTextField) ?? 1
+    }
+
+    // Setup text fields
+    func setDefaultText() {
+        
+        // Text field and label default text
         totalCamerasTextField.text = "8"
         totalDaysTextField.text = "30"
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"
         
-        // Disable text fields so you can't select them
-        disableTextFields(named: totalCamerasTextField)
-        disableTextFields(named: totalDaysTextField)
-        disableTextFields(named: totalHoursTextField)
-        
-    }
-    
-    // Create function to change label textColor to lightAccentColor
-    func changeLabelTextColorToLightAccentColor(label: UILabel) {
-        label.textColor = lightAccentColor
     }
     
     // Setup steppers
@@ -253,10 +241,7 @@ class CalculateStorageViewController: UIViewController {
         totalHoursStepper.wraps = true
         
     }
-    
-    // Change text field color
 
-    
     // Create calculate storage function
     func calculateStorage() {
         
