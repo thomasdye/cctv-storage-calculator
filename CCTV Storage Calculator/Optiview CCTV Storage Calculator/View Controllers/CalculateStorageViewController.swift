@@ -39,21 +39,22 @@ class CalculateStorageViewController: UIViewController {
     var framesPerSecond: Int = 7
     let convertSecondsToHour: Int = 3600
     let darkAccentColor: UIColor = UIColor(hue: 0.5889,
-                                               saturation: 1,
-                                               brightness: 0.91,
-                                               alpha: 1.0)
+                                           saturation: 1,
+                                           brightness: 0.91,
+                                           alpha: 1.0)
+    
     let lightAccentColor: UIColor = UIColor(hue: 0.5694,
-                                                    saturation: 1,
-                                                    brightness: 0.97,
-                                                    alpha: 1.0)
+                                            saturation: 1,
+                                            brightness: 0.97,
+                                            alpha: 1.0)
     
     // CameraBitrate enum to use in calculation
     enum FrameSize: Int {
-        case twoMegapixel = 20
-        case threeMegapixel = 26
-        case fourMegapixel = 36
-        case fiveMegapixel = 46
-        case eightMegapixel = 72
+        case twoMegapixel = 15
+        case threeMegapixel = 21
+        case fourMegapixel = 30
+        case fiveMegapixel = 36
+        case eightMegapixel = 60
     }
     
     // Compression method enum
@@ -68,7 +69,6 @@ class CalculateStorageViewController: UIViewController {
 
         setup()
         calculateStorage()
-
     }
     
     // MARK: Functions
@@ -104,7 +104,6 @@ class CalculateStorageViewController: UIViewController {
         totalDaysTextField.text = "30"
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"
-        
     }
     
     // Setup steppers
@@ -131,7 +130,6 @@ class CalculateStorageViewController: UIViewController {
         totalDaysStepper.minimumValue = 1
         totalDaysStepper.maximumValue = 365
         totalDaysStepper.wraps = true
-        
     }
     
     // Total hours stepper setup
@@ -141,7 +139,6 @@ class CalculateStorageViewController: UIViewController {
         totalHoursStepper.minimumValue = 1
         totalHoursStepper.maximumValue = 24
         totalHoursStepper.wraps = true
-        
     }
     
     // MARK: IBActions

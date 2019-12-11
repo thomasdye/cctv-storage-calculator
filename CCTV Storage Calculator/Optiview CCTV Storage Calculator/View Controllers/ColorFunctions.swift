@@ -23,6 +23,7 @@ extension CalculateStorageViewController {
         }
     }
     
+    // Change segmented control tint color
     func changeSegmentedControlTintColor() {
         megapixelSelectedSegementedControl.selectedSegmentTintColor = lightAccentColor
     }
