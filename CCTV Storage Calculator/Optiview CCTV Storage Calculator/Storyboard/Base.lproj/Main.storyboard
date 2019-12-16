@@ -368,8 +368,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="qwL-iV-8QN">
-                                <rect key="frame" x="15" y="44" width="384" height="438"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qwL-iV-8QN">
+                                <rect key="frame" x="15" y="44" width="384" height="447"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optiview-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bk9-gP-hsY">
                                         <rect key="frame" x="0.0" y="0.0" width="384.00000000000011" height="120"/>
@@ -378,13 +378,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CCTV - ACCESS CONTROL - SOLAR - MOBILE SOLUTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azf-vE-QJG">
-                                        <rect key="frame" x="0.0" y="132" width="384" height="12"/>
+                                        <rect key="frame" x="0.0" y="135" width="384" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uW3-tt-aLy">
-                                        <rect key="frame" x="0.0" y="156" width="384" height="150"/>
+                                        <rect key="frame" x="0.0" y="162" width="384" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-40" translatesAutoresizingMaskIntoConstraints="NO" id="JsO-jd-1eg">
                                                 <rect key="frame" x="0.0" y="0.0" width="184.5" height="150"/>
@@ -423,7 +423,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-rp-Qmf">
-                                        <rect key="frame" x="0.0" y="318" width="384" height="120"/>
+                                        <rect key="frame" x="0.0" y="327" width="384" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Atq-SW-AKN">
                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="120"/>
