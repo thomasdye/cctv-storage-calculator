@@ -297,14 +297,14 @@ class CalculateStorageViewController: UIViewController {
          // Divide storage by compression
          storageGB = storageGB / compression
          
-         // If motion detect is on, divide total GB by 1.35
+         // If motion detect is on, divide total GB by 1.40
          if motionDetectOn == true {
-            storageGB = storageGB / 1.35
+            storageGB = storageGB / 1.40
          }
         
-         // If audio is on, multiply total GB by 1.04
+         // If audio is on, multiply total GB by 1.05
          if audioOn == true {
-            storageGB = storageGB * 1.04
+            storageGB = storageGB * 1.05
          }
          
          // Then, if storage in GB is greater than 1000GB (1TB), calculate storage in TB
