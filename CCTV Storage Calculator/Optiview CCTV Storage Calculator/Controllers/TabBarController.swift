@@ -50,11 +50,10 @@ final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
             destination.transform = .identity
         }, completion: { transitionContext.completeTransition($0) })
     }
-
     
     //Asks your animator object for the duration (in seconds) of the transition animation.
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.25
+        return 0.4
     }
 
 }

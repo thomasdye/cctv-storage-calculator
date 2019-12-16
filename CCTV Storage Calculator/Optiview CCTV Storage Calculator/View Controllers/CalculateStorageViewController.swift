@@ -36,8 +36,9 @@ class CalculateStorageViewController: UIViewController {
     var storageGB: Double = 0.0
     var storageTB: Double = 0.0
     var compression: Double = CompressionMethod.h264.rawValue
-    var framesPerSecond: Int = 7
+    var framesPerSecond: Int = 15
     let convertSecondsToHour: Int = 3600
+    let textFieldFontSize: CGFloat = 20
     let darkAccentColor: UIColor = UIColor(hue: 0.5889,
                                            saturation: 1,
                                            brightness: 0.91,
@@ -60,7 +61,7 @@ class CalculateStorageViewController: UIViewController {
     // Compression method enum
     enum CompressionMethod: Double {
         case h264 = 1.0
-        case h265 = 1.3
+        case h265 = 1.33
     }
 
     // View loaded. Call setup and calculateStorage functions
@@ -73,11 +74,12 @@ class CalculateStorageViewController: UIViewController {
     
     // MARK: Functions
     
-    // Create setup function for easier editing later
+    // Create setup function
     func setup() {
         
         setDefaultText()
         setupSteppers()
+        setupTextFields()
         changeLabelTextColor()
         changeTextFieldColor()
         changeStepperTintColor()
@@ -88,9 +90,9 @@ class CalculateStorageViewController: UIViewController {
     // Set variables equal to text fields
     func retreiveValues() {
         
-        guard let hoursTextField = totalHoursTextField?.text, let camerasTextField = totalCamerasTextField.text, let daysTextField = totalDaysTextField.text else { return }
-            
-            
+        guard let hoursTextField = totalHoursTextField?.text,
+              let camerasTextField = totalCamerasTextField.text,
+              let daysTextField = totalDaysTextField.text else { return }
         totalHours = Int(hoursTextField) ?? 1
         totalCameras = Int(camerasTextField) ?? 1
         totalDays = Int(daysTextField) ?? 1
@@ -104,6 +106,17 @@ class CalculateStorageViewController: UIViewController {
         totalDaysTextField.text = "30"
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"
+        framesPerSecondSlider.value = 15
+    }
+    
+    func setupTextFields() {
+        let arrayOfTextFields: [UITextField] = [totalCamerasTextField,
+                                                totalDaysTextField,
+                                                totalHoursTextField]
+        for textField in arrayOfTextFields {
+            textField.borderStyle = .none
+            textField.font = textField.font?.withSize(textFieldFontSize)
+        }
     }
     
     // Setup steppers
@@ -153,12 +166,15 @@ class CalculateStorageViewController: UIViewController {
     // Audio selected segment changed
     @IBAction func audioSegmentedControlPressed(_ sender: UISegmentedControl) {
         
+        let audioOffSelected: Int = 0
+        let audioOnSelected: Int = 1
+        
         switch audioSegmentedControl.selectedSegmentIndex
          {
-         case 0:
+         case audioOffSelected:
              audioOn = false
              audioSegmentedControl.selectedSegmentTintColor = .none
-         case 1:
+         case audioOnSelected:
              audioOn = true
              audioSegmentedControl.selectedSegmentTintColor = lightAccentColor
          default:
@@ -184,12 +200,15 @@ class CalculateStorageViewController: UIViewController {
     // Motion detect selected segment changed
     @IBAction func motionDetectSegementedControlPressed(_ sender: UISegmentedControl) {
         
+        let motionDetectOffSelected: Int = 0
+        let motionDetectOnSelected: Int = 1
+        
         switch motionDetectSegmentedControl.selectedSegmentIndex
          {
-         case 0:
+         case motionDetectOffSelected:
              motionDetectOn = false
              motionDetectSegmentedControl.selectedSegmentTintColor = .none
-         case 1:
+         case motionDetectOnSelected:
              motionDetectOn = true
              motionDetectSegmentedControl.selectedSegmentTintColor = lightAccentColor
          default:
@@ -201,17 +220,23 @@ class CalculateStorageViewController: UIViewController {
     // Megapixel selected segment changed
     @IBAction func megapixelSegmentedControlPressed(_ sender: UISegmentedControl) {
         
+        let twoMegapixelSelected: Int = 0
+        let threeMegapixelSelected: Int = 1
+        let fourMegapixelSelected: Int = 2
+        let fiveMegapixelSelected: Int = 3
+        let eightMegapixelSelected: Int = 4
+        
         switch megapixelSelectedSegementedControl.selectedSegmentIndex
          {
-        case 0:
+        case twoMegapixelSelected:
             cameraBitrate = FrameSize.twoMegapixel.rawValue
-        case 1:
+        case threeMegapixelSelected:
             cameraBitrate = FrameSize.threeMegapixel.rawValue
-        case 2:
+        case fourMegapixelSelected:
             cameraBitrate = FrameSize.fourMegapixel.rawValue
-        case 3:
+        case fiveMegapixelSelected:
             cameraBitrate = FrameSize.fiveMegapixel.rawValue
-        case 4:
+        case eightMegapixelSelected:
             cameraBitrate = FrameSize.eightMegapixel.rawValue
         default:
             break
@@ -221,13 +246,16 @@ class CalculateStorageViewController: UIViewController {
     
     // Compression selected segment changed
     @IBAction func compressionSegmentedControlPressed(_ sender: UISegmentedControl) {
-
+        
+        let compressionOffSelected: Int = 0
+        let compressionOnSelected: Int = 1
+        
         switch compressionSegmentedControl.selectedSegmentIndex
          {
-        case 0:
+        case compressionOffSelected:
             compression = CompressionMethod.h264.rawValue
             compressionSegmentedControl.selectedSegmentTintColor = .none
-        case 1:
+        case compressionOnSelected:
             compression = CompressionMethod.h265.rawValue
             compressionSegmentedControl.selectedSegmentTintColor = lightAccentColor
         default:
