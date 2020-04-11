@@ -15,14 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JpE-QY-sIN">
-                                <rect key="frame" x="15" y="44" width="384" height="460"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JpE-QY-sIN">
+                                <rect key="frame" x="15" y="44" width="384" height="502"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRD-SU-Vvr">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optiview-logo" translatesAutoresizingMaskIntoConstraints="NO" id="pxw-pL-eup">
-                                                <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="384.00000000000011" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="4XO-Ym-G0c"/>
                                                 </constraints>
@@ -30,21 +30,18 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="bSo-Bm-bhv">
-                                        <rect key="frame" x="0.0" y="50" width="384" height="20"/>
+                                        <rect key="frame" x="0.0" y="55" width="384" height="12"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CCTV - ACCESS CONTROL - SOLAR - MOBILE SOLUTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-sJ-g1G">
-                                                <rect key="frame" x="0.0" y="0.0" width="384" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="E7f-cN-hse"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Bo4-QM-XX0">
-                                        <rect key="frame" x="0.0" y="80" width="384" height="32"/>
+                                        <rect key="frame" x="0.0" y="82" width="384" height="32"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cameras:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVn-7d-Wqh">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="32"/>
@@ -72,7 +69,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="I8N-5P-gSd">
-                                        <rect key="frame" x="0.0" y="122" width="384" height="31"/>
+                                        <rect key="frame" x="0.0" y="129" width="384" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resolution:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPa-Wk-HfJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="31"/>
@@ -96,7 +93,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="mn1-EH-9gD">
-                                        <rect key="frame" x="0.0" y="163" width="384" height="32"/>
+                                        <rect key="frame" x="0.0" y="175" width="384" height="32"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Days:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhz-cT-jc3">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="32"/>
@@ -124,7 +121,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="NK8-1n-Cds">
-                                        <rect key="frame" x="0.0" y="205" width="384" height="32"/>
+                                        <rect key="frame" x="0.0" y="222" width="384" height="32"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording Hours:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-2d-pL3">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="32"/>
@@ -152,7 +149,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="PMJ-bU-Eip">
-                                        <rect key="frame" x="0.0" y="247" width="384" height="31"/>
+                                        <rect key="frame" x="0.0" y="269" width="384" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion Detect:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkS-a5-nNc">
                                                 <rect key="frame" x="0.0" y="0.0" width="113.33333333333333" height="31"/>
@@ -173,7 +170,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="5dA-Ih-hTI">
-                                        <rect key="frame" x="0.0" y="288" width="384" height="31"/>
+                                        <rect key="frame" x="0.0" y="315" width="384" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfS-g8-2gS">
                                                 <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="31"/>
@@ -194,7 +191,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="iyo-4H-irb">
-                                        <rect key="frame" x="0.0" y="329" width="384" height="31"/>
+                                        <rect key="frame" x="0.0" y="361" width="384" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compression:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORg-MP-ThX">
                                                 <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="31"/>
@@ -217,7 +214,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-YZ-wac">
-                                        <rect key="frame" x="0.0" y="370" width="384" height="30"/>
+                                        <rect key="frame" x="0.0" y="407" width="384" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FPS: 15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLw-Gu-s66">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
@@ -240,7 +237,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZj-7h-AcI">
-                                        <rect key="frame" x="0.0" y="410" width="384" height="50"/>
+                                        <rect key="frame" x="0.0" y="452" width="384" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLi-ak-9U3">
                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
@@ -296,18 +293,28 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qwL-iV-8QN">
                                 <rect key="frame" x="15" y="44" width="384" height="337"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optiview-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bk9-gP-hsY">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBc-IH-l0s">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="4mG-rr-0Xa"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CCTV - ACCESS CONTROL - SOLAR - MOBILE SOLUTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azf-vE-QJG">
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optiview-logo" translatesAutoresizingMaskIntoConstraints="NO" id="tB4-P4-Ajg">
+                                                <rect key="frame" x="0.0" y="0.0" width="384.00000000000011" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="WM2-ye-bvl"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="19c-9V-fZe">
                                         <rect key="frame" x="0.0" y="55" width="384" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CCTV - ACCESS CONTROL - SOLAR - MOBILE SOLUTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhd-Cz-8HB">
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uW3-tt-aLy">
                                         <rect key="frame" x="0.0" y="82" width="384" height="150"/>
                                         <subviews>
