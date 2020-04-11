@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVF-hU-rIy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVF-hU-rIy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -280,86 +280,6 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
         </scene>
-        <!--Website-->
-        <scene sceneID="fBZ-6C-bLB">
-            <objects>
-                <viewController id="aAR-Q5-F4e" customClass="WebsiteViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZtR-zL-Lp4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJ4-nV-krf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="YJ4-nV-krf" firstAttribute="bottom" secondItem="ahz-qR-Vs2" secondAttribute="bottom" id="8BI-TX-lGU"/>
-                            <constraint firstItem="YJ4-nV-krf" firstAttribute="top" secondItem="ahz-qR-Vs2" secondAttribute="top" id="eFW-C6-04b"/>
-                            <constraint firstItem="YJ4-nV-krf" firstAttribute="trailing" secondItem="ahz-qR-Vs2" secondAttribute="trailing" id="eZm-w0-7Jv"/>
-                            <constraint firstItem="YJ4-nV-krf" firstAttribute="leading" secondItem="ahz-qR-Vs2" secondAttribute="leading" id="fSZ-gu-j8D"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ahz-qR-Vs2"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Website" image="globe" catalog="system" selectedImage="globe" id="Ij8-yx-vrW"/>
-                    <connections>
-                        <outlet property="webView" destination="YJ4-nV-krf" id="BLX-4T-ddw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QXm-td-Ms9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="843.75"/>
-        </scene>
-        <!--Lens Calculator-->
-        <scene sceneID="yM7-7C-iJZ">
-            <objects>
-                <viewController id="EPf-03-ucR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hJ9-ui-zph">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Rp7-Lo-NY5">
-                                <rect key="frame" x="15" y="44" width="384" height="189.5"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optiview-logo" translatesAutoresizingMaskIntoConstraints="NO" id="dmx-Pf-WNz">
-                                        <rect key="frame" x="0.0" y="0.0" width="384.00000000000011" height="165.5"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CCTV - ACCESS CONTROL - SOLAR - MOBILE SOLUTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmi-8b-REg">
-                                        <rect key="frame" x="0.0" y="177.5" width="384" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqj-yS-a8t">
-                                <rect key="frame" x="115.5" y="435" width="183.5" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Rp7-Lo-NY5" firstAttribute="top" secondItem="wTd-ul-DXw" secondAttribute="top" id="Eqp-fR-eGm"/>
-                            <constraint firstItem="hqj-yS-a8t" firstAttribute="centerY" secondItem="wTd-ul-DXw" secondAttribute="centerY" id="FIV-L7-Qbx"/>
-                            <constraint firstItem="hqj-yS-a8t" firstAttribute="centerX" secondItem="wTd-ul-DXw" secondAttribute="centerX" id="g3f-lS-Nz9"/>
-                            <constraint firstItem="Rp7-Lo-NY5" firstAttribute="leading" secondItem="wTd-ul-DXw" secondAttribute="leading" constant="15" id="qxc-kK-WYl"/>
-                            <constraint firstAttribute="trailing" secondItem="Rp7-Lo-NY5" secondAttribute="trailing" constant="15" id="rdd-15-HgH"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="wTd-ul-DXw"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Lens Calculator" image="magnifyingglass" catalog="system" id="WFb-zE-4JF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lep-CO-Ria" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1048" y="844"/>
-        </scene>
         <!--Contact-->
         <scene sceneID="Hxm-ir-7zK">
             <objects>
@@ -544,8 +464,6 @@
         <image name="07.square" catalog="system" width="64" height="56"/>
         <image name="30.square" catalog="system" width="64" height="56"/>
         <image name="folder" catalog="system" width="64" height="46"/>
-        <image name="globe" catalog="system" width="64" height="60"/>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="optiview-logo" width="595.33331298828125" height="165.66667175292969"/>
         <image name="person" catalog="system" width="64" height="58"/>
     </resources>
