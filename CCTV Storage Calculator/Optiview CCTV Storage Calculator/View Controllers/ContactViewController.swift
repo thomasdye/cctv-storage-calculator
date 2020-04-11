@@ -24,20 +24,21 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var salesEmailButton: UIButton!
     @IBOutlet weak var techSupportEmailButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
-    let optiviewLocation = CLLocation(latitude: 30.296767,
-                                      longitude: -81.611463)
+    
+    
     
     let optiviewAddressLink = "https://maps.apple.com/?address=5211%20Fairmont%20St,%20Jacksonville,%20FL%20%2032207,%20United%20States&ll=30.296857,-81.611421&q=5211%20Fairmont%20St&_ext=EiYpNcHcddhKPkAx322NwHZnVMA5MWwoLiVNPkBBWR2KSsxmVMBQAw%3D%3D"
     
+    
     // Create function to center map
     func centerMapOnLocation(location: CLLocation) {
-        
-        
         let regionRadius: CLLocationDistance = 750
+        let optiviewLocation = CLLocationCoordinate2D(latitude: 30.296767,
+                                                      longitude: -81.611463)
         let mapPin = MapPin(title: "Optiview",
-          locationName: "5211 Fairmont Street",
-          discipline: "Office",
-          coordinate: CLLocationCoordinate2D(latitude: 30.296767, longitude: -81.611463))
+                            locationName: "5211 Fairmont Street",
+                            discipline: "Office",
+                            coordinate: optiviewLocation)
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
                                                   latitudinalMeters: regionRadius,
                                                   longitudinalMeters: regionRadius)
@@ -143,6 +144,8 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     
     // Create function to center optiview on map
     func centerOptiviewLocation() {
+        let optiviewLocation = CLLocation(latitude: 30.296767,
+        longitude: -81.611463)
         centerMapOnLocation(location: optiviewLocation)
     }
     

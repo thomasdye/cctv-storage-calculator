@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE0942E423A0AAF0000D918C /* ColorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0942E323A0AAF0000D918C /* ColorFunctions.swift */; };
-		CE3DC9CB235123C200BE204F /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DC9CA235123C200BE204F /* WebsiteViewController.swift */; };
 		CE3DC9ED235365E700BE204F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DC9EC235365E700BE204F /* ContactViewController.swift */; };
 		CE3EA6FC234CE380004A4864 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA6FB234CE380004A4864 /* TabBarController.swift */; };
 		CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */; };
-		CE3EA702234CE889004A4864 /* LensCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */; };
 		CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D22343AA8B003B0626 /* AppDelegate.swift */; };
 		CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4069D42343AA8B003B0626 /* SceneDelegate.swift */; };
 		CE4069DA2343AA8B003B0626 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4069D82343AA8B003B0626 /* Main.storyboard */; };
@@ -22,11 +20,9 @@
 
 /* Begin PBXFileReference section */
 		CE0942E323A0AAF0000D918C /* ColorFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFunctions.swift; sourceTree = "<group>"; };
-		CE3DC9CA235123C200BE204F /* WebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
 		CE3DC9EC235365E700BE204F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		CE3EA6FB234CE380004A4864 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateStorageViewController.swift; sourceTree = "<group>"; };
-		CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensCalculatorViewController.swift; sourceTree = "<group>"; };
 		CE4069CF2343AA8B003B0626 /* CCTV Storage Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CCTV Storage Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4069D22343AA8B003B0626 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4069D42343AA8B003B0626 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,8 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */,
-				CE3EA701234CE889004A4864 /* LensCalculatorViewController.swift */,
-				CE3DC9CA235123C200BE204F /* WebsiteViewController.swift */,
 				CE3DC9EC235365E700BE204F /* ContactViewController.swift */,
 				CE0942E323A0AAF0000D918C /* ColorFunctions.swift */,
 			);
@@ -190,9 +184,7 @@
 				CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */,
 				CE0942E423A0AAF0000D918C /* ColorFunctions.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,
-				CE3DC9CB235123C200BE204F /* WebsiteViewController.swift in Sources */,
 				CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */,
-				CE3EA702234CE889004A4864 /* LensCalculatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

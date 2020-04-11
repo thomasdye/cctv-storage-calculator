@@ -43,7 +43,6 @@ class CalculateStorageViewController: UIViewController {
                                            saturation: 1,
                                            brightness: 0.91,
                                            alpha: 1.0)
-    
     let lightAccentColor: UIColor = UIColor(hue: 0.5694,
                                             saturation: 1,
                                             brightness: 0.97,
@@ -76,7 +75,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Create setup function
     func setup() {
-        
         setDefaultText()
         setupSteppers()
         setupTextFields()
@@ -89,7 +87,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Set variables equal to text fields
     func retreiveValues() {
-        
         guard let hoursTextField = totalHoursTextField?.text,
               let camerasTextField = totalCamerasTextField.text,
               let daysTextField = totalDaysTextField.text else { return }
@@ -121,7 +118,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Setup steppers
     func setupSteppers() {
-
         setupTotalCamerasStepper()
         setupTotalDaysStepper()
         setupTotalHoursStepper()
@@ -129,7 +125,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Total cameras stepper setup
     func setupTotalCamerasStepper() {
-        
         totalCamerasStepper.value = 8
         totalCamerasStepper.minimumValue = 1
         totalCamerasStepper.maximumValue = 128
@@ -138,7 +133,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Total days stepper setup
     func setupTotalDaysStepper() {
-        
         totalDaysStepper.value = 30
         totalDaysStepper.minimumValue = 1
         totalDaysStepper.maximumValue = 365
@@ -147,7 +141,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Total hours stepper setup
     func setupTotalHoursStepper() {
-        
         totalHoursStepper.value = 24
         totalHoursStepper.minimumValue = 1
         totalHoursStepper.maximumValue = 24
@@ -158,14 +151,12 @@ class CalculateStorageViewController: UIViewController {
     
     // Total cameras stepper changed
     @IBAction func totalCamerasStepperPressed(_ sender: UIStepper) {
-        
         totalCamerasTextField.text = Int(sender.value).description
         calculateStorage()
     }
     
     // Audio selected segment changed
     @IBAction func audioSegmentedControlPressed(_ sender: UISegmentedControl) {
-        
         let audioOffSelected: Int = 0
         let audioOnSelected: Int = 1
         
@@ -185,21 +176,18 @@ class CalculateStorageViewController: UIViewController {
     
     // Total days stepper changed
     @IBAction func totalDaysStepperPressed(_ sender: UIStepper) {
-        
         totalDaysTextField.text = Int(sender.value).description
         calculateStorage()
     }
     
     // Total hours stepper changed
     @IBAction func totalHoursStepperPressed(_ sender: UIStepper) {
-        
         totalHoursTextField.text = Int(sender.value).description
         calculateStorage()
     }
     
     // Motion detect selected segment changed
     @IBAction func motionDetectSegementedControlPressed(_ sender: UISegmentedControl) {
-        
         let motionDetectOffSelected: Int = 0
         let motionDetectOnSelected: Int = 1
         
@@ -219,7 +207,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Megapixel selected segment changed
     @IBAction func megapixelSegmentedControlPressed(_ sender: UISegmentedControl) {
-        
         let twoMegapixelSelected: Int = 0
         let threeMegapixelSelected: Int = 1
         let fourMegapixelSelected: Int = 2
@@ -246,7 +233,6 @@ class CalculateStorageViewController: UIViewController {
     
     // Compression selected segment changed
     @IBAction func compressionSegmentedControlPressed(_ sender: UISegmentedControl) {
-        
         let compressionOffSelected: Int = 0
         let compressionOnSelected: Int = 1
         
@@ -266,7 +252,6 @@ class CalculateStorageViewController: UIViewController {
     
     // FPS slider changed
     @IBAction func framesPerSecondSliderChanged(_ sender: UISlider) {
-        
         calculateStorage()
         framesPerSecond = Int(sender.value)
         framesPerSecondLabel.text = "FPS: \(framesPerSecond)"
