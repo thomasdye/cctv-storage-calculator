@@ -25,11 +25,6 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var techSupportEmailButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
     
-    
-    
-    let optiviewAddressLink = "https://maps.apple.com/?address=5211%20Fairmont%20St,%20Jacksonville,%20FL%20%2032207,%20United%20States&ll=30.296857,-81.611421&q=5211%20Fairmont%20St&_ext=EiYpNcHcddhKPkAx322NwHZnVMA5MWwoLiVNPkBBWR2KSsxmVMBQAw%3D%3D"
-    
-    
     // Create function to center map
     func centerMapOnLocation(location: CLLocation) {
         let regionRadius: CLLocationDistance = 750
@@ -81,7 +76,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         
         // Sales Phone
         salesPhoneLabel.textAlignment = .center
-        salesPhoneLabel.text = "Sales"
+        salesPhoneLabel.text = "Sales 👨‍💼"
         salesPhoneButton.setTitle("(904)-805-1581", for: .normal)
     }
     
@@ -97,7 +92,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         
         // Tech Support Phone
         techSupportPhoneLabel.textAlignment = .center
-        techSupportPhoneLabel.text = "Tech Support"
+        techSupportPhoneLabel.text = "Tech Support 🧑‍💻"
         techSupportPhoneButton.setTitle("(904)-855-1121", for: .normal)
     }
     
@@ -163,6 +158,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     
     // Create button for when address button is tapped
     func addressButtonTapped() {
+        let optiviewAddressLink = "https://maps.apple.com/?address=5211%20Fairmont%20St,%20Jacksonville,%20FL%20%2032207,%20United%20States&ll=30.296857,-81.611421&q=5211%20Fairmont%20St&_ext=EiYpNcHcddhKPkAx322NwHZnVMA5MWwoLiVNPkBBWR2KSsxmVMBQAw%3D%3D"
         let url: NSURL = URL(string: optiviewAddressLink)! as NSURL
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         
