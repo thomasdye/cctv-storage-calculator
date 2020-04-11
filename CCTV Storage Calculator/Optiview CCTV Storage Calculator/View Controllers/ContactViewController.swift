@@ -11,7 +11,8 @@ import MapKit
 import MessageUI
 
 class ContactViewController: UIViewController, MFMailComposeViewControllerDelegate {
-
+    
+    // IB Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navigateAddressButton: UIButton!
     @IBOutlet weak var salesPhoneLabel: UILabel!
