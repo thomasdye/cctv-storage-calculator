@@ -1,5 +1,5 @@
 //
-//  Functions.swift
+//  ColorFunctions.swift
 //  CCTV Storage Calculator
 //
 //  Created by Casualty on 12/10/19.

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalculateStorageViewController.swift
 //  Optiview CCTV Storage Calculator
 //
 //  Created by Casualty on 10/1/19.
