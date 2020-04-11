@@ -15,15 +15,19 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     // IB Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navigateAddressButton: UIButton!
-    @IBOutlet weak var salesPhoneLabel: UILabel!
-    @IBOutlet weak var techSupportPhoneLabel: UILabel!
+    @IBOutlet weak var salesTitleLabel: UILabel!
     @IBOutlet weak var salesPhoneButton: UIButton!
     @IBOutlet weak var techSupportPhoneButton: UIButton!
-    @IBOutlet weak var salesEmailTitleLabel: UILabel!
-    @IBOutlet weak var techSupportEmailTitleLabel: UILabel!
+    @IBOutlet weak var techSupportTitleLabel: UILabel!
     @IBOutlet weak var salesEmailButton: UIButton!
     @IBOutlet weak var techSupportEmailButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    let optiviewSalesPhoneText = "(904)-805-1581"
+    let optiviewTechSupportPhoneText = "(904)-855-1121"
+    let optiviewSalesEmailText = "sales@optiviewusa.com"
+    let optiviewTechSupportEmailText = "tech@optiviewusa.com"
+    let optiviewAddressText = "5211 Fairmont St.\nJacksonville, FL\n32207"
     
     // Create function to center map
     func centerMapOnLocation(location: CLLocation) {
@@ -53,18 +57,12 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     // Setup text
     func setupText() {
         
-        // Sales Phone
-        setupSalesPhoneText()
+        // Setup Sales Text
+        setupSalesText()
         
-        // Sales Email
-        setupSalesEmailText()
-        
-        // Tech Support Phone
-        setupTechSupportPhoneText()
-        
-        // Tech Support Email
-        setupTechSupportEmailText()
-        
+        // Setup Tech Support Text
+        setupTechSupportText()
+    
         // Address Button
         setupAddressButtonText()
         
@@ -72,36 +70,24 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         setupLocationLabelText()
     }
     
-    func setupSalesPhoneText() {
+    func setupSalesText() {
         
         // Sales Phone
-        salesPhoneLabel.textAlignment = .center
-        salesPhoneLabel.text = "Sales 👨‍💼"
-        salesPhoneButton.setTitle("(904)-805-1581", for: .normal)
+        salesTitleLabel.textAlignment = .center
+        salesTitleLabel.text = "Sales 👨‍💼"
+        salesPhoneButton.setTitle(optiviewSalesPhoneText, for: .normal)
+        salesEmailButton.setTitle(optiviewSalesEmailText, for: .normal)
+        salesEmailButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
-    func setupSalesEmailText() {
+    func setupTechSupportText() {
         
         // Sales Email
-        salesEmailTitleLabel.textAlignment = .center
-        salesEmailButton.setTitle("sales@optiviewusa.com", for: .normal)
-        salesEmailTitleLabel.text = "Sales"
-    }
-    
-    func setupTechSupportPhoneText() {
-        
-        // Tech Support Phone
-        techSupportPhoneLabel.textAlignment = .center
-        techSupportPhoneLabel.text = "Tech Support 🧑‍💻"
-        techSupportPhoneButton.setTitle("(904)-855-1121", for: .normal)
-    }
-    
-    func setupTechSupportEmailText() {
-        
-        // Tech Support Email
-        techSupportEmailTitleLabel.textAlignment = .center
-        techSupportEmailButton.setTitle("tech@optiviewusa.com", for: .normal)
-        techSupportEmailTitleLabel.text = "Tech Support"
+        techSupportTitleLabel.textAlignment = .center
+        techSupportTitleLabel.text = "Tech Support 👨‍💻"
+        techSupportPhoneButton.setTitle(optiviewTechSupportPhoneText, for: .normal)
+        techSupportEmailButton.setTitle(optiviewTechSupportEmailText, for: .normal)
+        techSupportEmailButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     func setupAddressButtonText() {
@@ -115,7 +101,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         // Location Label
         locationLabel.textAlignment = .center
         locationLabel.numberOfLines = 0
-        locationLabel.text = "5211 Fairmont St.\nJacksonville, FL\n32207"
+        locationLabel.text = optiviewAddressText
     }
     
     // Setup map
@@ -315,7 +301,6 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
       let locationName: String
       let discipline: String
       let coordinate: CLLocationCoordinate2D
-        
       
       init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
