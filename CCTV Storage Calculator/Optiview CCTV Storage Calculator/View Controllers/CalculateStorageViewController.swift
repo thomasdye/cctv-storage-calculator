@@ -25,6 +25,7 @@ class CalculateStorageViewController: UIViewController {
     @IBOutlet weak var framesPerSecondSlider: UISlider!
     @IBOutlet weak var framesPerSecondLabel: UILabel!
     @IBOutlet weak var audioSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var shareResultsButton: UIButton!
     
     // MARK: Variables and Constants
     var totalCameras: Int = 0
@@ -255,6 +256,12 @@ class CalculateStorageViewController: UIViewController {
         calculateStorage()
         framesPerSecond = Int(sender.value)
         framesPerSecondLabel.text = "FPS: \(framesPerSecond)"
+    }
+    
+    
+    @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
+    
+        
     }
     
     // MARK: Calculate storage function
