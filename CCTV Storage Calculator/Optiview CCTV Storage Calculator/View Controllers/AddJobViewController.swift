@@ -10,11 +10,21 @@ import UIKit
 
 class AddJobViewController: UIViewController {
     @IBOutlet weak var jobNotesTextView: UITextView!
+    @IBOutlet weak var totalStorageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTextView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setTotalStorage()
+    }
+    
+    func setTotalStorage() {
+        totalStorageLabel.text = totalStorageCalculated
     }
     
     func setupTextView() {

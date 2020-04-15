@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+public var totalStorageCalculated: String = String()
+
 class CalculateStorageViewController: UIViewController {
     
     // MARK: Outlets
@@ -28,6 +30,7 @@ class CalculateStorageViewController: UIViewController {
     @IBOutlet weak var shareResultsButton: UIButton!
     
     // MARK: Variables and Constants
+    
     var totalCameras: Int = 0
     var cameraBitrate: Int = FrameSize.twoMegapixel.rawValue
     var totalDays: Int = 30
@@ -307,7 +310,12 @@ class CalculateStorageViewController: UIViewController {
          } else {
             storageGB = storageGB.rounded(.up)
             totalStorageLabel.text = "\(storageGB) GB"
+            
+            
          }
+        
+        totalStorageCalculated = totalStorageLabel.text ?? "0.0GB"
     }
 }
+
 
