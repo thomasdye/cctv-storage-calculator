@@ -263,7 +263,7 @@ class CalculateStorageViewController: UIViewController {
     
     
     @IBAction func saveResultsButtonTapped(_ sender: UIButton) {
-    
+        navigationController?.popViewController(animated: true)
         
     }
     
