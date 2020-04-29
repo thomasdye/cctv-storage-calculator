@@ -21,6 +21,7 @@
 		ED437C632446DA40002E096B /* OptiviewDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */; };
 		ED437C672446DA72002E096B /* AddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C662446DA72002E096B /* AddJobViewController.swift */; };
 		ED437C692446DA97002E096B /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C682446DA97002E096B /* JobsTableViewController.swift */; };
+		EDBD328D2459036C00584B79 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD328C2459036C00584B79 /* Job.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptiviewDealerViewController.swift; sourceTree = "<group>"; };
 		ED437C662446DA72002E096B /* AddJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobViewController.swift; sourceTree = "<group>"; };
 		ED437C682446DA97002E096B /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
+		EDBD328C2459036C00584B79 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		CE3EA705234CE8B2004A4864 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				CE4069E02343AA8E003B0626 /* Info.plist */,
 				CE4069DB2343AA8E003B0626 /* Assets.xcassets */,
 				CE4069D22343AA8B003B0626 /* AppDelegate.swift */,
 				CE4069D42343AA8B003B0626 /* SceneDelegate.swift */,
@@ -114,13 +117,21 @@
 		CE4069D12343AA8B003B0626 /* Optiview CCTV Storage Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				CE4069E02343AA8E003B0626 /* Info.plist */,
+				EDBD328B2459035900584B79 /* Model */,
 				CE3EA704234CE8A0004A4864 /* Controllers */,
 				CE3EA703234CE88E004A4864 /* View Controllers */,
 				CE3EA705234CE8B2004A4864 /* Misc */,
 				CE3EA706234CE8C3004A4864 /* Storyboard */,
 			);
 			path = "Optiview CCTV Storage Calculator";
+			sourceTree = "<group>";
+		};
+		EDBD328B2459035900584B79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDBD328C2459036C00584B79 /* Job.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */,
 				ED437C612446CE15002E096B /* SignInViewController.swift in Sources */,
 				CE0942E423A0AAF0000D918C /* ColorFunctions.swift in Sources */,
+				EDBD328D2459036C00584B79 /* Job.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,
 				CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */,
 				ED437C692446DA97002E096B /* JobsTableViewController.swift in Sources */,
