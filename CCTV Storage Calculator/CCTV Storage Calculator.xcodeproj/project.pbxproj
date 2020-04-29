@@ -19,9 +19,11 @@
 		ED437C5F2446CE03002E096B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C5E2446CE03002E096B /* SignUpViewController.swift */; };
 		ED437C612446CE15002E096B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C602446CE15002E096B /* SignInViewController.swift */; };
 		ED437C632446DA40002E096B /* OptiviewDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */; };
-		ED437C672446DA72002E096B /* AddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C662446DA72002E096B /* AddJobViewController.swift */; };
+		ED437C672446DA72002E096B /* CreateJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C662446DA72002E096B /* CreateJobViewController.swift */; };
 		ED437C692446DA97002E096B /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C682446DA97002E096B /* JobsTableViewController.swift */; };
-		EDBD328D2459036C00584B79 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD328C2459036C00584B79 /* Job.swift */; };
+		EDBD328D2459036C00584B79 /* Job+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD328C2459036C00584B79 /* Job+Convenience.swift */; };
+		EDBD329224592DFE00584B79 /* Jobs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDBD329024592DFE00584B79 /* Jobs.xcdatamodeld */; };
+		EDBD329424592E7800584B79 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD329324592E7800584B79 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +41,11 @@
 		ED437C5E2446CE03002E096B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		ED437C602446CE15002E096B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptiviewDealerViewController.swift; sourceTree = "<group>"; };
-		ED437C662446DA72002E096B /* AddJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobViewController.swift; sourceTree = "<group>"; };
+		ED437C662446DA72002E096B /* CreateJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobViewController.swift; sourceTree = "<group>"; };
 		ED437C682446DA97002E096B /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
-		EDBD328C2459036C00584B79 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		EDBD328C2459036C00584B79 /* Job+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+Convenience.swift"; sourceTree = "<group>"; };
+		EDBD329124592DFE00584B79 /* Jobs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jobs.xcdatamodel; sourceTree = "<group>"; };
+		EDBD329324592E7800584B79 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +64,10 @@
 			children = (
 				CE3EA6FF234CE868004A4864 /* CalculateStorageViewController.swift */,
 				CE3DC9EC235365E700BE204F /* ContactViewController.swift */,
-				CE0942E323A0AAF0000D918C /* ColorFunctions.swift */,
 				ED437C5E2446CE03002E096B /* SignUpViewController.swift */,
 				ED437C602446CE15002E096B /* SignInViewController.swift */,
 				ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */,
-				ED437C662446DA72002E096B /* AddJobViewController.swift */,
+				ED437C662446DA72002E096B /* CreateJobViewController.swift */,
 				ED437C682446DA97002E096B /* JobsTableViewController.swift */,
 			);
 			path = "View Controllers";
@@ -81,7 +84,6 @@
 		CE3EA705234CE8B2004A4864 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				CE4069E02343AA8E003B0626 /* Info.plist */,
 				CE4069DB2343AA8E003B0626 /* Assets.xcassets */,
 				CE4069D22343AA8B003B0626 /* AppDelegate.swift */,
 				CE4069D42343AA8B003B0626 /* SceneDelegate.swift */,
@@ -117,21 +119,25 @@
 		CE4069D12343AA8B003B0626 /* Optiview CCTV Storage Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				EDBD328B2459035900584B79 /* Model */,
+				EDBD328B2459035900584B79 /* Models */,
 				CE3EA704234CE8A0004A4864 /* Controllers */,
 				CE3EA703234CE88E004A4864 /* View Controllers */,
 				CE3EA705234CE8B2004A4864 /* Misc */,
 				CE3EA706234CE8C3004A4864 /* Storyboard */,
+				CE4069E02343AA8E003B0626 /* Info.plist */,
 			);
 			path = "Optiview CCTV Storage Calculator";
 			sourceTree = "<group>";
 		};
-		EDBD328B2459035900584B79 /* Model */ = {
+		EDBD328B2459035900584B79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EDBD328C2459036C00584B79 /* Job.swift */,
+				EDBD329024592DFE00584B79 /* Jobs.xcdatamodeld */,
+				EDBD328C2459036C00584B79 /* Job+Convenience.swift */,
+				EDBD329324592E7800584B79 /* CoreDataStack.swift */,
+				CE0942E323A0AAF0000D918C /* ColorFunctions.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,11 +218,13 @@
 				CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */,
 				ED437C612446CE15002E096B /* SignInViewController.swift in Sources */,
 				CE0942E423A0AAF0000D918C /* ColorFunctions.swift in Sources */,
-				EDBD328D2459036C00584B79 /* Job.swift in Sources */,
+				EDBD329424592E7800584B79 /* CoreDataStack.swift in Sources */,
+				EDBD328D2459036C00584B79 /* Job+Convenience.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,
 				CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */,
+				EDBD329224592DFE00584B79 /* Jobs.xcdatamodeld in Sources */,
 				ED437C692446DA97002E096B /* JobsTableViewController.swift in Sources */,
-				ED437C672446DA72002E096B /* AddJobViewController.swift in Sources */,
+				ED437C672446DA72002E096B /* CreateJobViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +424,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EDBD329024592DFE00584B79 /* Jobs.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EDBD329124592DFE00584B79 /* Jobs.xcdatamodel */,
+			);
+			currentVersion = EDBD329124592DFE00584B79 /* Jobs.xcdatamodel */;
+			path = Jobs.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE4069C72343AA8B003B0626 /* Project object */;
 }

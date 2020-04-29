@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LSu-ER-feb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LSu-ER-feb">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
+            <point key="canvasLocation" x="3280" y="1100"/>
         </scene>
         <!--Contact-->
         <scene sceneID="Hxm-ir-7zK">
@@ -300,7 +300,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qwL-iV-8QN">
-                                <rect key="frame" x="15" y="108" width="384" height="337"/>
+                                <rect key="frame" x="15" y="64" width="384" height="337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBc-IH-l0s">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="40"/>
@@ -579,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgZ-UI-KLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="-556"/>
+            <point key="canvasLocation" x="207" y="-759"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="455-b2-9MV">
@@ -670,7 +670,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
                                                 <state key="normal" title="Sign In"/>
                                                 <connections>
-                                                    <segue destination="coI-0D-eqY" kind="presentation" modalPresentationStyle="fullScreen" id="cvx-50-NY6"/>
+                                                    <segue destination="T16-mF-1gr" kind="presentation" modalPresentationStyle="fullScreen" id="8md-OC-R8j"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -725,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awE-Da-V4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="-556"/>
+            <point key="canvasLocation" x="1357" y="-759"/>
         </scene>
         <!--Optiview Dealer-->
         <scene sceneID="Z4Y-OY-Vn6">
@@ -748,32 +748,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Jobs"/>
                                 <connections>
-                                    <segue destination="wFi-ps-JUr" kind="show" id="Kev-cW-wYr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GU-Ik-5uk">
-                                <rect key="frame" x="180" y="832" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Contact"/>
-                                <connections>
-                                    <segue destination="xyf-Hz-672" kind="show" id="MVt-AA-EgO"/>
+                                    <segue destination="wFi-ps-JUr" kind="show" id="hSu-oL-C0N"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ysr-Ra-YKf"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Jobs" image="briefcase" catalog="system" id="BHA-m8-caM"/>
                     <navigationItem key="navigationItem" title="Optiview Dealer" id="XzT-YR-Gi2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Eta-DY-q4e">
                             <connections>
-                                <segue destination="TxK-BQ-lsK" kind="show" id="FVB-Hq-d3J"/>
+                                <segue destination="TxK-BQ-lsK" kind="show" id="3V3-0I-I8A"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zez-vB-NAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="-352"/>
+            <point key="canvasLocation" x="4126" y="-759"/>
         </scene>
         <!--Jobs-->
         <scene sceneID="j5i-FR-ExH">
@@ -784,7 +777,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6gs-Vd-cfu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobCell" id="6gs-Vd-cfu">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gs-Vd-cfu" id="7E7-A8-OhN">
@@ -802,12 +795,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2M-Q8-afe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4135" y="-352"/>
+            <point key="canvasLocation" x="5033" y="-759"/>
         </scene>
         <!--Add New Job-->
         <scene sceneID="SyX-ok-hkD">
             <objects>
-                <viewController id="TxK-BQ-lsK" customClass="AddJobViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TxK-BQ-lsK" customClass="CreateJobViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V0W-mj-sa0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -949,9 +942,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-Ue-5pT">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-Ue-5pT">
                                                 <rect key="frame" x="0.0" y="40.333333333333385" width="374" height="204.33333333333337"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -974,42 +966,71 @@
                         <viewLayoutGuide key="safeArea" id="msd-WJ-mJO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Job" id="q0c-NL-FF9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xUV-8f-mIQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xUV-8f-mIQ">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="TxK-BQ-lsK" id="0lO-qY-LkQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="customerNameTextField" destination="KGJ-Hd-jwp" id="qhy-dL-k7g"/>
+                        <outlet property="jobNameTextField" destination="IMw-Ha-nU7" id="tqa-fa-L4W"/>
                         <outlet property="jobNotesTextView" destination="H9V-Ue-5pT" id="iVt-I0-dec"/>
+                        <outlet property="numberOfCamerasTextField" destination="nHr-hn-DXw" id="W4r-wW-uhz"/>
+                        <outlet property="phoneNumberTextField" destination="Ore-vJ-JHc" id="3dJ-pu-hge"/>
+                        <outlet property="systemTypeSegmentedControl" destination="za8-g4-7Y8" id="uXg-IN-Z50"/>
                         <outlet property="totalStorageLabel" destination="zX3-tM-9Wc" id="eP8-u4-jZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fM-qs-9ID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4135" y="370"/>
+            <point key="canvasLocation" x="3280" y="276"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sfj-Bz-YMJ">
+        <!--Jobs-->
+        <scene sceneID="5Xn-L3-8sV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cDR-zE-DcC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController id="coI-0D-eqY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vxp-b6-hjN">
+                <navigationController id="rgz-2b-NKI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Jobs" image="briefcase" catalog="system" id="Dcj-MH-e0C"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dcn-DX-VLF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="eXS-Kr-7yA" kind="relationship" relationship="rootViewController" id="0D8-qJ-97a"/>
+                        <segue destination="eXS-Kr-7yA" kind="relationship" relationship="rootViewController" id="tT7-L6-eMS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6m2-cQ-l2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2399" y="-351"/>
+            <point key="canvasLocation" x="3209" y="-759"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="PoX-wW-KNI">
+            <objects>
+                <tabBarController id="T16-mF-1gr" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3t0-W6-y5I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rgz-2b-NKI" kind="relationship" relationship="viewControllers" id="TEr-Sa-dVw"/>
+                        <segue destination="xyf-Hz-672" kind="relationship" relationship="viewControllers" id="yJ4-3x-5wi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1o-hU-VG6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2312" y="-759"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="07.square" catalog="system" width="64" height="56"/>
-        <image name="30.square" catalog="system" width="64" height="56"/>
-        <image name="folder" catalog="system" width="64" height="46"/>
-        <image name="optiview-logo" width="595.33331298828125" height="165.66667175292969"/>
-        <image name="person" catalog="system" width="64" height="58"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nhk-JO-ub0"/>
+        <segue reference="ODH-tq-14w"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="07.square" catalog="system" width="128" height="114"/>
+        <image name="30.square" catalog="system" width="128" height="114"/>
+        <image name="briefcase" catalog="system" width="128" height="102"/>
+        <image name="folder" catalog="system" width="128" height="95"/>
+        <image name="optiview-logo" width="595.33331298828125" height="165.66667175292969"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+    </resources>
 </document>

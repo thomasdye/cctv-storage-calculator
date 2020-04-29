@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Job" representedClassName="Job" syncable="YES" codeGenerationType="class">
+        <attribute name="customerName" optional="YES" attributeType="String"/>
+        <attribute name="customerPhoneNumber" attributeType="String"/>
+        <attribute name="jobName" optional="YES" attributeType="String"/>
+        <attribute name="jobNotes" optional="YES" attributeType="String"/>
+        <attribute name="numberOfCameras" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="systemType" optional="YES" attributeType="String"/>
+        <attribute name="totalStorage" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Job" positionX="-63" positionY="-18" width="128" height="148"/>
+    </elements>
+</model>
