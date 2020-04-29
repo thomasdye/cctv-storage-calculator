@@ -9,26 +9,21 @@
 import Foundation
 import CoreData
 
-//struct Jobs: Codable {
-//    var jobName: String
-//    var customerName: String
-//    var phoneNumber: String
-//    var systemType: Int
-//    var numberOfCameras: Int
-//    var totalStorage: String
-//    var notes: String?
-//
-//}
+enum SystemType: String, CaseIterable {
+    case IP
+    case COAX
+    case Hybrid
+}
 
 extension Job {
     @discardableResult convenience init(jobName: String,
                                         customerName: String,
                                         customerPhoneNumber: String,
-                                        systemType: String,
+                                        systemType: SystemType = .COAX,
                                         numberOfCameras: Int64,
                                         totalStorage: String,
                                         jobNotes: String,
-                                        context: NSManagedObjectContext) {
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         // Set up the NSManagedObject portion of the Task object
         self.init(context: context)
             
@@ -36,7 +31,7 @@ extension Job {
         self.jobName = jobName
         self.customerName = customerName
         self.customerPhoneNumber = customerPhoneNumber
-        self.systemType = systemType
+        self.systemType = systemType.rawValue
         self.numberOfCameras = numberOfCameras
         self.totalStorage = totalStorage
         self.jobNotes = jobNotes

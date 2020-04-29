@@ -684,7 +684,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fsq-zu-FE8">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fsq-zu-FE8">
                                                 <rect key="frame" x="187" y="0.0" width="169" height="31"/>
                                             </switch>
                                         </subviews>
@@ -777,15 +777,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobCell" rowHeight="43.666667938232422" id="6gs-Vd-cfu">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="JobCell" id="6gs-Vd-cfu" customClass="JobTableViewCell" customModule="CCTV_Storage_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gs-Vd-cfu" id="7E7-A8-OhN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="igz-sv-EhJ">
+                                            <rect key="frame" x="15" y="30" width="268" height="28"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrT-qF-wSj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="igz-sv-EhJ" firstAttribute="top" secondItem="7E7-A8-OhN" secondAttribute="top" constant="30" id="AKz-vQ-jB5"/>
+                                        <constraint firstAttribute="bottom" secondItem="igz-sv-EhJ" secondAttribute="bottom" constant="30" id="dbr-y4-40y"/>
+                                        <constraint firstItem="igz-sv-EhJ" firstAttribute="leading" secondItem="7E7-A8-OhN" secondAttribute="leading" constant="15" id="hPz-6Z-yiy"/>
+                                        <constraint firstAttribute="trailing" secondItem="igz-sv-EhJ" secondAttribute="trailing" constant="100" id="qag-TE-4aK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="HYU-Pf-rRL" kind="show" identifier="SelectedJobCell" id="Kxa-3M-l7H"/>
+                                    <outlet property="jobNameLabel" destination="HrT-qF-wSj" id="FJy-LN-mDQ"/>
+                                    <segue destination="HYU-Pf-rRL" kind="show" identifier="ShowJobDetail" id="Kxa-3M-l7H"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -800,10 +820,10 @@
             </objects>
             <point key="canvasLocation" x="5058" y="-759"/>
         </scene>
-        <!--Job Detail View Cell View Controller-->
+        <!--Job Detail View Controller-->
         <scene sceneID="eRJ-Oz-nvk">
             <objects>
-                <viewController id="HYU-Pf-rRL" customClass="JobDetailViewCellViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HYU-Pf-rRL" customClass="JobDetailViewController" customModule="CCTV_Storage_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ip-2h-30w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -883,7 +903,7 @@
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hTV-z3-4cY">
                                                 <rect key="frame" x="140" y="0.0" width="234" height="32"/>
                                                 <segments>
-                                                    <segment title="IP" enabled="NO"/>
+                                                    <segment title="IP"/>
                                                     <segment title="COAX"/>
                                                     <segment title="Hybrid"/>
                                                 </segments>
@@ -969,13 +989,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wHl-4u-LOU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Emb-3m-FA3"/>
+                    <navigationItem key="navigationItem" id="Emb-3m-FA3">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="l1r-HE-paK">
+                            <connections>
+                                <action selector="saveBarButtonTapped:" destination="HYU-Pf-rRL" id="ceo-zm-iBR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="customerNameTextField" destination="ccb-Hx-efg" id="hI4-q7-pn5"/>
                         <outlet property="customerPhoneNumberTextField" destination="Ni8-3o-PO2" id="xxZ-3Z-VOS"/>
                         <outlet property="jobNameTextField" destination="atk-mK-NM6" id="0of-Ol-NU5"/>
                         <outlet property="jobNotesTextView" destination="hGB-JA-jd0" id="ewt-M5-jM9"/>
                         <outlet property="numberOfCamerasTextField" destination="0mp-nd-Prc" id="ZWF-w5-9U1"/>
+                        <outlet property="saveBarButton" destination="l1r-HE-paK" id="IuW-4U-OMU"/>
                         <outlet property="systemTypeSegmentedController" destination="hTV-z3-4cY" id="0ER-oB-T8S"/>
                         <outlet property="totalStorageLabel" destination="8Y6-kg-VuS" id="gvb-GO-B3m"/>
                     </connections>

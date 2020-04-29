@@ -17,7 +17,7 @@
 		CE4069DC2343AA8E003B0626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4069DB2343AA8E003B0626 /* Assets.xcassets */; };
 		CE4069DF2343AA8E003B0626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4069DD2343AA8E003B0626 /* LaunchScreen.storyboard */; };
 		ED4298C62459C64600F1C1CA /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */; };
-		ED4298C82459F1E700F1C1CA /* JobDetailViewCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4298C72459F1E700F1C1CA /* JobDetailViewCellViewController.swift */; };
+		ED4298C82459F1E700F1C1CA /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4298C72459F1E700F1C1CA /* JobDetailViewController.swift */; };
 		ED437C5F2446CE03002E096B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C5E2446CE03002E096B /* SignUpViewController.swift */; };
 		ED437C612446CE15002E096B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C602446CE15002E096B /* SignInViewController.swift */; };
 		ED437C632446DA40002E096B /* OptiviewDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */; };
@@ -41,7 +41,7 @@
 		CE4069DE2343AA8E003B0626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE4069E02343AA8E003B0626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
-		ED4298C72459F1E700F1C1CA /* JobDetailViewCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewCellViewController.swift; sourceTree = "<group>"; };
+		ED4298C72459F1E700F1C1CA /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		ED437C5E2446CE03002E096B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		ED437C602446CE15002E096B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptiviewDealerViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 				ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */,
 				ED437C662446DA72002E096B /* CreateJobViewController.swift */,
 				ED437C682446DA97002E096B /* JobsTableViewController.swift */,
-				ED4298C72459F1E700F1C1CA /* JobDetailViewCellViewController.swift */,
+				ED4298C72459F1E700F1C1CA /* JobDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 				ED437C612446CE15002E096B /* SignInViewController.swift in Sources */,
 				CE0942E423A0AAF0000D918C /* ColorFunctions.swift in Sources */,
 				EDBD329424592E7800584B79 /* CoreDataStack.swift in Sources */,
-				ED4298C82459F1E700F1C1CA /* JobDetailViewCellViewController.swift in Sources */,
+				ED4298C82459F1E700F1C1CA /* JobDetailViewController.swift in Sources */,
 				EDBD328D2459036C00584B79 /* Job+Convenience.swift in Sources */,
 				ED4298C62459C64600F1C1CA /* JobTableViewCell.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,

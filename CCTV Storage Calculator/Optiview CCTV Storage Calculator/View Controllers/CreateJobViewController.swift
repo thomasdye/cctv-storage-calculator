@@ -42,8 +42,6 @@ class CreateJobViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
-        // Create non-optional properties
-        var systemType = ""
         
         // Check if job name, customer name, phone number, total storage have value
         guard let jobName = jobNameTextField.text,
@@ -54,17 +52,9 @@ class CreateJobViewController: UIViewController {
             let jobNotes = jobNotesTextView.text else { return }
         
         // Need to determine the selectedSegmentIndex for systemType and convert it to a string
-        func determineSystemType() {
-            if systemTypeSegmentedControl.selectedSegmentIndex == 0 {
-                systemType = "IP"
-            } else if systemTypeSegmentedControl.selectedSegmentIndex == 1 {
-                systemType = "COAX"
-            } else if systemTypeSegmentedControl.selectedSegmentIndex == 2 {
-                systemType = "Hybrid"
-            }
-        }
-    
-        determineSystemType()
+        
+        let systemTypeIndex = systemTypeSegmentedControl.selectedSegmentIndex
+        let systemType = SystemType.allCases[systemTypeIndex]
         
         Job(jobName: jobName,
             customerName: customerName,
