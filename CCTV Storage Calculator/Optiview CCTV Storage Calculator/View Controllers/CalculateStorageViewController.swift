@@ -92,10 +92,9 @@ class CalculateStorageViewController: UIViewController {
     // Set variables equal to text fields
     func retreiveValues() {
         guard let hoursTextField = totalHoursTextField?.text,
-              let camerasTextField = totalCamerasTextField.text,
               let daysTextField = totalDaysTextField.text else { return }
         totalHours = Int(hoursTextField) ?? 1
-        totalCameras = Int(camerasTextField) ?? 1
+        totalCameras = totalCamerasFromCreateJob
         totalDays = Int(daysTextField) ?? 1
     }
 
@@ -103,7 +102,7 @@ class CalculateStorageViewController: UIViewController {
     func setDefaultText() {
         
         // Text field and label default text
-        totalCamerasTextField.text = "8"
+        totalCamerasTextField.text = String(totalCamerasFromCreateJob)
         totalDaysTextField.text = "30"
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"

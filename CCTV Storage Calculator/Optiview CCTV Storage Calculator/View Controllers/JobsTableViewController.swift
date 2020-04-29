@@ -11,6 +11,8 @@ import CoreData
 
 class JobsTableViewController: UITableViewController {
     
+    let moc = CoreDataStack.shared.mainContext
+    
     var allJobs: [Job] {
         
         // Fetch Request to fetch Entry
@@ -53,10 +55,9 @@ class JobsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell",
+                                                 for: indexPath)
         let job = allJobs[indexPath.row]
-        
         cell.textLabel?.text = job.jobName
 
         return cell
@@ -70,17 +71,17 @@ class JobsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+      if editingStyle == .delete {
+        moc.delete(allJobs[indexPath.row])
+        do {
+          try moc.save()
+          tableView.reloadData()
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+      }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -107,4 +108,30 @@ class JobsTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension JobsTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+        
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+            
+        }
+    }
 }

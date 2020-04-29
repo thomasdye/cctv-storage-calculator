@@ -8,6 +8,8 @@
 
 import UIKit
 
+var totalCamerasFromCreateJob: Int = 0
+
 class CreateJobViewController: UIViewController {
     
     @IBOutlet weak var jobNotesTextView: UITextView!
@@ -82,5 +84,10 @@ class CreateJobViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
         
+    }
+    @IBAction func calculateButtonTapped(_ sender: UIButton) {
+        
+        guard let numberOfCameras = numberOfCamerasTextField.text else { return }
+        totalCamerasFromCreateJob = Int(numberOfCameras) ?? 8
     }
 }

@@ -16,6 +16,7 @@
 		CE4069DA2343AA8B003B0626 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4069D82343AA8B003B0626 /* Main.storyboard */; };
 		CE4069DC2343AA8E003B0626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4069DB2343AA8E003B0626 /* Assets.xcassets */; };
 		CE4069DF2343AA8E003B0626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4069DD2343AA8E003B0626 /* LaunchScreen.storyboard */; };
+		ED4298C62459C64600F1C1CA /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */; };
 		ED437C5F2446CE03002E096B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C5E2446CE03002E096B /* SignUpViewController.swift */; };
 		ED437C612446CE15002E096B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C602446CE15002E096B /* SignInViewController.swift */; };
 		ED437C632446DA40002E096B /* OptiviewDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */; };
@@ -38,6 +39,7 @@
 		CE4069DB2343AA8E003B0626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4069DE2343AA8E003B0626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE4069E02343AA8E003B0626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		ED437C5E2446CE03002E096B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		ED437C602446CE15002E096B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptiviewDealerViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		CE4069D12343AA8B003B0626 /* Optiview CCTV Storage Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				ED4298C42459C61C00F1C1CA /* Views */,
 				EDBD328B2459035900584B79 /* Models */,
 				CE3EA704234CE8A0004A4864 /* Controllers */,
 				CE3EA703234CE88E004A4864 /* View Controllers */,
@@ -127,6 +130,14 @@
 				CE4069E02343AA8E003B0626 /* Info.plist */,
 			);
 			path = "Optiview CCTV Storage Calculator";
+			sourceTree = "<group>";
+		};
+		ED4298C42459C61C00F1C1CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EDBD328B2459035900584B79 /* Models */ = {
@@ -220,6 +231,7 @@
 				CE0942E423A0AAF0000D918C /* ColorFunctions.swift in Sources */,
 				EDBD329424592E7800584B79 /* CoreDataStack.swift in Sources */,
 				EDBD328D2459036C00584B79 /* Job+Convenience.swift in Sources */,
+				ED4298C62459C64600F1C1CA /* JobTableViewCell.swift in Sources */,
 				CE4069D52343AA8B003B0626 /* SceneDelegate.swift in Sources */,
 				CE3EA700234CE869004A4864 /* CalculateStorageViewController.swift in Sources */,
 				EDBD329224592DFE00584B79 /* Jobs.xcdatamodeld in Sources */,
@@ -375,7 +387,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.casualtygames.Optiview-CCTV-Storage-Calculator";
 				PRODUCT_NAME = "CCTV Storage Calculator";
 				SWIFT_VERSION = 5.0;
@@ -394,7 +406,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.casualtygames.Optiview-CCTV-Storage-Calculator";
 				PRODUCT_NAME = "CCTV Storage Calculator";
 				SWIFT_VERSION = 5.0;
