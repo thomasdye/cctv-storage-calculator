@@ -22,25 +22,6 @@ class JobsTableViewController: UITableViewController {
         try! frc.performFetch()
         return frc
     }()
-    
-    var allJobs: [Job] {
-        
-        // Fetch Request to fetch Entry
-        let fetchRequest: NSFetchRequest<Job> = Job.fetchRequest()
-        
-        // Create context to place the context we are fetching inside of
-        let context = CoreDataStack.shared.mainContext
-        
-        do {
-            let fetchedJobs = try context.fetch(fetchRequest)
-            
-            return fetchedJobs
-        } catch {
-            NSLog("Error fetching jobs: \(error)")
-            return []
-        }
-        
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,16 +31,17 @@ class JobsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return fetchedResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath) as? JobTableViewCell else {
             fatalError("Can't dequeue cell of type \(JobTableViewCell.reuseIdentifier)")
         }
@@ -69,32 +51,33 @@ class JobsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-        let job = fetchedResultsController.object(at: indexPath)
-        moc.delete(job)
-        do {
-          try moc.save()
-          tableView.reloadData()
-        } catch let error as NSError {
-          print("Could not save. \(error), \(error.userInfo)")
+        
+        if editingStyle == .delete {
+            let job = fetchedResultsController.object(at: indexPath)
+            moc.delete(job)
+            do {
+                try moc.save()
+                tableView.reloadData()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
         }
-      }
     }
-    
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "ShowJobDetail" {
-                if let detailVC = segue.destination as? JobDetailViewController,
-                    let indexPath = tableView.indexPathForSelectedRow {
-                    detailVC.job = fetchedResultsController.object(at: indexPath)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowJobDetail" {
+            if let detailVC = segue.destination as? JobDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.job = fetchedResultsController.object(at: indexPath)
                 }
             }
         }
     }
 
 extension JobsTableViewController: NSFetchedResultsControllerDelegate {
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
         
+        tableView.beginUpdates()
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

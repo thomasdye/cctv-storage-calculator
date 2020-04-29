@@ -12,6 +12,7 @@ var totalCamerasFromCreateJob: Int = 0
 
 class CreateJobViewController: UIViewController {
     
+    // Outlets
     @IBOutlet weak var jobNotesTextView: UITextView!
     @IBOutlet weak var totalStorageLabel: UILabel!
     @IBOutlet weak var jobNameTextField: UITextField!

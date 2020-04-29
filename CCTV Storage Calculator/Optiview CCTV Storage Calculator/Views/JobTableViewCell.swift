@@ -36,5 +36,4 @@ class JobTableViewCell: UITableViewCell {
         
         jobNameLabel.text = job.jobName
     }
-
 }

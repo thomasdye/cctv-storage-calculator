@@ -23,6 +23,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var techSupportEmailButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
     
+    // Constants
     let optiviewSalesPhoneText = "(904)-805-1581"
     let optiviewTechSupportPhoneText = "(904)-855-1121"
     let optiviewSalesEmailText = "sales@optiviewusa.com"
@@ -72,7 +73,6 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     
     func setupSalesText() {
         
-        // Sales Phone
         salesTitleLabel.textAlignment = .center
         salesTitleLabel.text = "Sales 👨‍💼"
         salesPhoneButton.setTitle(optiviewSalesPhoneText, for: .normal)
@@ -82,7 +82,6 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     
     func setupTechSupportText() {
         
-        // Sales Email
         techSupportTitleLabel.textAlignment = .center
         techSupportTitleLabel.text = "Tech Support 👨‍💻"
         techSupportPhoneButton.setTitle(optiviewTechSupportPhoneText, for: .normal)
@@ -104,7 +103,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         locationLabel.text = optiviewAddressText
     }
     
-    // Setup map
+    // Set up map
     func setupMap() {
         
         // Map can zoom
