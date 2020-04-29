@@ -10,6 +10,7 @@ import UIKit
 
 class JobTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var customerPhoneNumberButton: UIButton!
     @IBOutlet weak var jobNameLabel: UILabel!
     
     static let reuseIdentifier = "JobCell"
@@ -32,8 +33,23 @@ class JobTableViewCell: UITableViewCell {
     }
     
     private func updateViews() {
-        guard let job = job else { return }
-        
+        guard let job = job,
+            let customerPhoneNumber = job.customerPhoneNumber else { return }
+       
         jobNameLabel.text = job.jobName
+        customerPhoneNumberButton.setTitle(customerPhoneNumber, for: .normal)
+    }
+    
+    @IBAction func customerPhoneNumberButtonTapped(_ sender: UIButton) {
+        
+        self.callCustomerPhoneNumber()
+    }
+    
+    func callCustomerPhoneNumber()  {
+        
+        guard let customerPhoneNumber = job?.customerPhoneNumber else { return }
+        let url: NSURL = URL(string: "TEL://\(customerPhoneNumber)")! as NSURL
+
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
     }
 }

@@ -778,22 +778,35 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="JobCell" id="6gs-Vd-cfu" customClass="JobTableViewCell" customModule="CCTV_Storage_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="88"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="125.33333587646484"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gs-Vd-cfu" id="7E7-A8-OhN">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="88"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="125.33333587646484"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="igz-sv-EhJ">
-                                            <rect key="frame" x="15" y="30" width="268" height="28"/>
+                                            <rect key="frame" x="15" y="30" width="268" height="65.333333333333329"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrT-qF-wSj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TD-hY-At3">
+                                                    <rect key="frame" x="0.0" y="35" width="268" height="30.333333333333329"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="4tl-ne-aEV"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="customerPhoneNumberButtonTapped:" destination="6gs-Vd-cfu" eventType="touchUpInside" id="iLp-a1-S2k"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8TD-hY-At3" firstAttribute="top" secondItem="igz-sv-EhJ" secondAttribute="top" constant="35" id="BV3-NF-koO"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -804,6 +817,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="customerPhoneNumberButton" destination="8TD-hY-At3" id="Qyl-Bp-A3i"/>
                                     <outlet property="jobNameLabel" destination="HrT-qF-wSj" id="FJy-LN-mDQ"/>
                                     <segue destination="HYU-Pf-rRL" kind="show" identifier="ShowJobDetail" id="Kxa-3M-l7H"/>
                                 </connections>
