@@ -29,7 +29,6 @@ class JobDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = editButtonItem
         
         updateViews()
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -148,8 +147,6 @@ class JobDetailViewController: UIViewController {
         
         numberOfCamerasTextField.text = "\(job?.numberOfCameras ?? 8)"
         totalStorageLabel.text = job?.totalStorage
-        
     }
-
     
 }

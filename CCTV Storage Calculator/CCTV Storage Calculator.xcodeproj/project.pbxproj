@@ -18,6 +18,7 @@
 		CE4069DF2343AA8E003B0626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4069DD2343AA8E003B0626 /* LaunchScreen.storyboard */; };
 		ED4298C62459C64600F1C1CA /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */; };
 		ED4298C82459F1E700F1C1CA /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4298C72459F1E700F1C1CA /* JobDetailViewController.swift */; };
+		ED4298CA245A559D00F1C1CA /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4298C9245A559D00F1C1CA /* PhoneNumberFormatter.swift */; };
 		ED437C5F2446CE03002E096B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C5E2446CE03002E096B /* SignUpViewController.swift */; };
 		ED437C612446CE15002E096B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C602446CE15002E096B /* SignInViewController.swift */; };
 		ED437C632446DA40002E096B /* OptiviewDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */; };
@@ -42,6 +43,7 @@
 		CE4069E02343AA8E003B0626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		ED4298C72459F1E700F1C1CA /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
+		ED4298C9245A559D00F1C1CA /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		ED437C5E2446CE03002E096B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		ED437C602446CE15002E096B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		ED437C622446DA40002E096B /* OptiviewDealerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptiviewDealerViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				EDBD328C2459036C00584B79 /* Job+Convenience.swift */,
 				EDBD329324592E7800584B79 /* CoreDataStack.swift */,
 				CE0942E323A0AAF0000D918C /* ColorFunctions.swift */,
+				ED4298C9245A559D00F1C1CA /* PhoneNumberFormatter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				CE4069D32343AA8B003B0626 /* AppDelegate.swift in Sources */,
 				ED437C612446CE15002E096B /* SignInViewController.swift in Sources */,
 				CE0942E423A0AAF0000D918C /* ColorFunctions.swift in Sources */,
+				ED4298CA245A559D00F1C1CA /* PhoneNumberFormatter.swift in Sources */,
 				EDBD329424592E7800584B79 /* CoreDataStack.swift in Sources */,
 				ED4298C82459F1E700F1C1CA /* JobDetailViewController.swift in Sources */,
 				EDBD328D2459036C00584B79 /* Job+Convenience.swift in Sources */,
