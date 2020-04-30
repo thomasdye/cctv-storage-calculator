@@ -36,8 +36,9 @@ class JobTableViewCell: UITableViewCell {
         guard let job = job,
             let customerPhoneNumber = job.customerPhoneNumber else { return }
        
+        let formattedPhoneNumber = format(phoneNumber: customerPhoneNumber)
         jobNameLabel.text = job.jobName
-        customerPhoneNumberButton.setTitle(customerPhoneNumber, for: .normal)
+        customerPhoneNumberButton.setTitle(formattedPhoneNumber, for: .normal)
     }
     
     @IBAction func customerPhoneNumberButtonTapped(_ sender: UIButton) {
@@ -48,7 +49,14 @@ class JobTableViewCell: UITableViewCell {
     func callCustomerPhoneNumber()  {
         
         guard let customerPhoneNumber = job?.customerPhoneNumber else { return }
-        let url: NSURL = URL(string: "TEL://\(customerPhoneNumber)")! as NSURL
+        
+        let formattedPhoneNumber = format(phoneNumber: customerPhoneNumber)
+        
+        let formattedPhoneNumberTwo = formattedPhoneNumber.replacingOccurrences(of: "(", with: "", options: NSString.CompareOptions.literal, range: nil)
+        let formattedPhoneNumberThree = formattedPhoneNumberTwo.replacingOccurrences(of: ")", with: "", options: NSString.CompareOptions.literal, range: nil)
+        let formattedPhoneNumberFour = formattedPhoneNumberThree.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range: nil)
+        let formattedPhoneNumberFive = formattedPhoneNumberFour.replacingOccurrences(of: " ", with: "", options: NSString.CompareOptions.literal, range: nil)
+        let url: NSURL = URL(string: "TEL://\(formattedPhoneNumberFive)")! as NSURL
 
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
     }

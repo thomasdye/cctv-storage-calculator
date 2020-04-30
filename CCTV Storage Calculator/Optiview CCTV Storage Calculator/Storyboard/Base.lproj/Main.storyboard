@@ -1003,20 +1003,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wHl-4u-LOU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Emb-3m-FA3">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="l1r-HE-paK">
-                            <connections>
-                                <action selector="saveBarButtonTapped:" destination="HYU-Pf-rRL" id="ceo-zm-iBR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Emb-3m-FA3"/>
                     <connections>
                         <outlet property="customerNameTextField" destination="ccb-Hx-efg" id="hI4-q7-pn5"/>
                         <outlet property="customerPhoneNumberTextField" destination="Ni8-3o-PO2" id="xxZ-3Z-VOS"/>
                         <outlet property="jobNameTextField" destination="atk-mK-NM6" id="0of-Ol-NU5"/>
                         <outlet property="jobNotesTextView" destination="hGB-JA-jd0" id="ewt-M5-jM9"/>
                         <outlet property="numberOfCamerasTextField" destination="0mp-nd-Prc" id="ZWF-w5-9U1"/>
-                        <outlet property="saveBarButton" destination="l1r-HE-paK" id="IuW-4U-OMU"/>
                         <outlet property="systemTypeSegmentedController" destination="hTV-z3-4cY" id="0ER-oB-T8S"/>
                         <outlet property="totalStorageLabel" destination="8Y6-kg-VuS" id="gvb-GO-B3m"/>
                     </connections>

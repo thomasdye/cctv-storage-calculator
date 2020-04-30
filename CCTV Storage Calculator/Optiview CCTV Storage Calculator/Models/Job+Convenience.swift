@@ -19,7 +19,7 @@ extension Job {
     @discardableResult convenience init(jobName: String,
                                         customerName: String,
                                         customerPhoneNumber: String,
-                                        systemType: SystemType = .COAX,
+                                        systemType: SystemType,
                                         numberOfCameras: Int64,
                                         totalStorage: String,
                                         jobNotes: String,

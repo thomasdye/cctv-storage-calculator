@@ -17,7 +17,6 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var numberOfCamerasTextField: UITextField!
     @IBOutlet weak var totalStorageLabel: UILabel!
     @IBOutlet weak var jobNotesTextView: UITextView!
-    @IBOutlet weak var saveBarButton: UIBarButtonItem!
     
     var job: Job?
     var wasEdited = false
@@ -27,7 +26,6 @@ class JobDetailViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = editButtonItem
-        
         updateViews()
     }
     
@@ -46,6 +44,9 @@ class JobDetailViewController: UIViewController {
             let numberOfCameras = numberOfCamerasTextField.text
             let totalStorage = totalStorageLabel.text
             let jobNotes = jobNotesTextView.text
+            
+            let systemTypeIndex = systemTypeSegmentedController.selectedSegmentIndex
+            job.systemType = SystemType.allCases[systemTypeIndex].rawValue
             
             job.customerName = cutstomerName
             job.customerPhoneNumber = customerPhoneNumber
@@ -77,52 +78,6 @@ class JobDetailViewController: UIViewController {
         navigationItem.hidesBackButton = editing
     }
     
-    @objc func save() {
-        guard let jobName = jobNameTextField.text,
-            !jobName.isEmpty,
-            let customerName = customerNameTextField.text,
-            let customerPhoneNumber = customerPhoneNumberTextField.text
-        else {
-            return
-        }
-
-        let systemType = systemTypeSegmentedController.selectedSegmentIndex
-        let systemTypeRawValue = SystemType.allCases[systemType]
-        let jobNotes = jobNotesTextView.text ?? ""
-        let numberOfCameras = Int64(numberOfCamerasTextField.text!) ?? 0
-        let totalStorage = totalStorageLabel.text ?? "8.0 TBB"
-        
-        
-        Job(jobName: jobName,
-            customerName: customerName,
-            customerPhoneNumber:
-            customerPhoneNumber,
-            systemType: systemTypeRawValue,
-            numberOfCameras: numberOfCameras,
-            totalStorage: totalStorage,
-            jobNotes: jobNotes)
-        
-        do {
-            try CoreDataStack.shared.mainContext.save()
-            navigationController?.dismiss(animated: true, completion: nil)
-        } catch {
-            NSLog("Error saving managed object context: \(error)")
-        }
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
-    }
-    
     private func updateViews() {
         jobNameTextField.text = job?.jobName
         jobNameTextField.isUserInteractionEnabled = isEditing
@@ -133,15 +88,18 @@ class JobDetailViewController: UIViewController {
         customerNameTextField.text = job?.customerName
         customerNameTextField.isUserInteractionEnabled = isEditing
         
-        customerPhoneNumberTextField.text = job?.customerPhoneNumber
+        let formattedPhoneNumber = format(phoneNumber: job?.customerPhoneNumber ?? "")
+        
+        customerPhoneNumberTextField.text = formattedPhoneNumber
         customerPhoneNumberTextField.isUserInteractionEnabled = isEditing
-    
+        
         let systemType: SystemType
         if let jobSystemType = job?.systemType {
             systemType = SystemType(rawValue: jobSystemType)!
         } else {
             systemType = .COAX
         }
+        
         systemTypeSegmentedController.selectedSegmentIndex = SystemType.allCases.firstIndex(of: systemType) ?? 1
         systemTypeSegmentedController.isUserInteractionEnabled = isEditing
         
