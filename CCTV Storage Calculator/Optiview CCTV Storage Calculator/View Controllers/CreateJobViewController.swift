@@ -1,5 +1,5 @@
 //
-//  AddJobViewController.swift
+//  CreateJobViewController.swift
 //  CCTV Storage Calculator
 //
 //  Created by Thomas Dye on 4/15/20.
@@ -20,6 +20,7 @@ class CreateJobViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var systemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var numberOfCamerasTextField: UITextField!
+    @IBOutlet weak var customerAddressTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +42,14 @@ class CreateJobViewController: UIViewController {
         jobNotesTextView.layer.cornerRadius = 15.0
     }
     
+    // Save button tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        
         
         // Check if job name, customer name, phone number, total storage have value
         guard let jobName = jobNameTextField.text,
             let customerName = customerNameTextField.text,
             let customerPhoneNumber = phoneNumberTextField.text,
+            let customerAddress = customerAddressTextField.text,
             let totalStorage = totalStorageLabel.text,
             let numberOfCameras = Int64(numberOfCamerasTextField.text ?? "0"),
             let jobNotes = jobNotesTextView.text else { return }
@@ -60,6 +62,7 @@ class CreateJobViewController: UIViewController {
         Job(jobName: jobName,
             customerName: customerName,
             customerPhoneNumber: customerPhoneNumber,
+            customerAddress: customerAddress,
             systemType: systemType,
             numberOfCameras: numberOfCameras,
             totalStorage: totalStorage,

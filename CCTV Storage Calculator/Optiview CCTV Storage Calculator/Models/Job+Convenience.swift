@@ -19,6 +19,7 @@ extension Job {
     @discardableResult convenience init(jobName: String,
                                         customerName: String,
                                         customerPhoneNumber: String,
+                                        customerAddress: String = "",
                                         systemType: SystemType,
                                         numberOfCameras: Int64,
                                         totalStorage: String,
@@ -31,6 +32,7 @@ extension Job {
         self.jobName = jobName
         self.customerName = customerName
         self.customerPhoneNumber = customerPhoneNumber
+        self.customerAddress = customerAddress
         self.systemType = systemType.rawValue
         self.numberOfCameras = numberOfCameras
         self.totalStorage = totalStorage

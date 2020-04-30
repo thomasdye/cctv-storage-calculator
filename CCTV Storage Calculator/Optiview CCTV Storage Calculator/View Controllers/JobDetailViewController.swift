@@ -17,6 +17,7 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var numberOfCamerasTextField: UITextField!
     @IBOutlet weak var totalStorageLabel: UILabel!
     @IBOutlet weak var jobNotesTextView: UITextView!
+    @IBOutlet weak var customerAddressTextField: UITextField!
     
     var job: Job?
     var wasEdited = false
@@ -41,6 +42,7 @@ class JobDetailViewController: UIViewController {
             
             let cutstomerName = customerNameTextField.text
             let customerPhoneNumber = customerPhoneNumberTextField.text
+            let customerAddress = customerAddressTextField.text
             let numberOfCameras = numberOfCamerasTextField.text
             let totalStorage = totalStorageLabel.text
             let jobNotes = jobNotesTextView.text
@@ -50,6 +52,7 @@ class JobDetailViewController: UIViewController {
             
             job.customerName = cutstomerName
             job.customerPhoneNumber = customerPhoneNumber
+            job.customerAddress = customerAddress
             job.numberOfCameras = Int64(numberOfCameras ?? "0") ?? 0
             job.totalStorage = totalStorage
             job.jobName = jobName
@@ -66,45 +69,74 @@ class JobDetailViewController: UIViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
-        if editing { wasEdited = true }
+        if editing { wasEdited = true
+            jobNameTextField.borderStyle = .none
+            
+            
+        }
         
         jobNameTextField.isUserInteractionEnabled = editing
+        jobNameTextField.borderStyle = .roundedRect
+        
         customerNameTextField.isUserInteractionEnabled = editing
+        customerNameTextField.borderStyle = .roundedRect
+        
         customerPhoneNumberTextField.isUserInteractionEnabled = editing
+        customerPhoneNumberTextField.borderStyle = .roundedRect
+        
+        customerAddressTextField.isUserInteractionEnabled = editing
+        customerAddressTextField.borderStyle = .roundedRect
+        
         systemTypeSegmentedController.isUserInteractionEnabled = editing
+        
         numberOfCamerasTextField.isUserInteractionEnabled = editing
+        numberOfCamerasTextField.borderStyle = .roundedRect
+        
+        setupTextView()
         jobNotesTextView.isUserInteractionEnabled = editing
+        jobNotesTextView.isEditable = true
         
         navigationItem.hidesBackButton = editing
     }
     
+    func setupTextView() {
+        jobNotesTextView.layer.borderColor = UIColor.lightGray.cgColor
+        jobNotesTextView.layer.borderWidth = 1
+        jobNotesTextView.layer.cornerRadius = 15.0
+    }
+    
     private func updateViews() {
-        jobNameTextField.text = job?.jobName
-        jobNameTextField.isUserInteractionEnabled = isEditing
-        
-        jobNotesTextView.text = job?.jobNotes
-        jobNotesTextView.isUserInteractionEnabled = isEditing
-        
-        customerNameTextField.text = job?.customerName
-        customerNameTextField.isUserInteractionEnabled = isEditing
         
         let formattedPhoneNumber = format(phoneNumber: job?.customerPhoneNumber ?? "")
-        
-        customerPhoneNumberTextField.text = formattedPhoneNumber
-        customerPhoneNumberTextField.isUserInteractionEnabled = isEditing
-        
         let systemType: SystemType
+        
         if let jobSystemType = job?.systemType {
             systemType = SystemType(rawValue: jobSystemType)!
         } else {
             systemType = .COAX
         }
         
+        jobNameTextField.text = job?.jobName
+        jobNameTextField.isUserInteractionEnabled = isEditing
+        
+        customerNameTextField.text = job?.customerName
+        customerNameTextField.isUserInteractionEnabled = isEditing
+        
+        customerPhoneNumberTextField.text = formattedPhoneNumber
+        customerPhoneNumberTextField.isUserInteractionEnabled = isEditing
+        
+        customerAddressTextField.text = job?.customerAddress
+        customerAddressTextField.isUserInteractionEnabled = isEditing
+        
         systemTypeSegmentedController.selectedSegmentIndex = SystemType.allCases.firstIndex(of: systemType) ?? 1
         systemTypeSegmentedController.isUserInteractionEnabled = isEditing
         
         numberOfCamerasTextField.text = "\(job?.numberOfCameras ?? 8)"
         totalStorageLabel.text = job?.totalStorage
+        
+        jobNotesTextView.text = job?.jobNotes
+        jobNotesTextView.isUserInteractionEnabled = isEditing
+
     }
     
 }

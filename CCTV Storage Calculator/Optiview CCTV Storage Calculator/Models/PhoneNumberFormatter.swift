@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+func textField(_ textField: UITextField,
+               shouldChangeCharactersIn range: NSRange,
+               replacementString string: String) -> Bool {
+    
     var fullString = textField.text ?? ""
     fullString.append(string)
     if range.length == 1 {
@@ -19,9 +22,14 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
     }
     return false
 }
-func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
+
+func format(phoneNumber: String,
+            shouldRemoveLastDigit: Bool = false) -> String {
+    
     guard !phoneNumber.isEmpty else { return "" }
-    guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)]", options: .caseInsensitive) else { return "" }
+    guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)]",
+                                               options: .caseInsensitive) else { return "" }
+    
     let r = NSString(string: phoneNumber).range(of: phoneNumber)
     var number = regex.stringByReplacingMatches(in: phoneNumber, options: .init(rawValue: 0), range: r, withTemplate: "")
 

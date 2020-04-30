@@ -41,6 +41,7 @@
 		CE4069DB2343AA8E003B0626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4069DE2343AA8E003B0626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE4069E02343AA8E003B0626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED2BA407245B180000A722C9 /* Jobs 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Jobs 2.xcdatamodel"; sourceTree = "<group>"; };
 		ED4298C52459C64600F1C1CA /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		ED4298C72459F1E700F1C1CA /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		ED4298C9245A559D00F1C1CA /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
@@ -449,9 +450,10 @@
 		EDBD329024592DFE00584B79 /* Jobs.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				ED2BA407245B180000A722C9 /* Jobs 2.xcdatamodel */,
 				EDBD329124592DFE00584B79 /* Jobs.xcdatamodel */,
 			);
-			currentVersion = EDBD329124592DFE00584B79 /* Jobs.xcdatamodel */;
+			currentVersion = ED2BA407245B180000A722C9 /* Jobs 2.xcdatamodel */;
 			path = Jobs.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -95,6 +95,7 @@ class CalculateStorageViewController: UIViewController {
               let daysTextField = totalDaysTextField.text else { return }
         totalHours = Int(hoursTextField) ?? 1
         totalCameras = totalCamerasFromCreateJob
+        print("total cameras from create job: \(totalCamerasFromCreateJob), total cameras: \(totalCameras)")
         totalDays = Int(daysTextField) ?? 1
     }
 
@@ -102,7 +103,7 @@ class CalculateStorageViewController: UIViewController {
     func setDefaultText() {
         
         // Text field and label default text
-        totalCamerasTextField.text = String(totalCamerasFromCreateJob)
+        totalCamerasTextField.text = String(Int(totalCamerasFromCreateJob))
         totalDaysTextField.text = "30"
         totalHoursTextField.text = "24"
         totalStorageLabel.text = "0 TB"
@@ -128,7 +129,7 @@ class CalculateStorageViewController: UIViewController {
     
     // Total cameras stepper setup
     func setupTotalCamerasStepper() {
-        totalCamerasStepper.value = 8
+        totalCamerasStepper.value = Double(totalCamerasFromCreateJob)
         totalCamerasStepper.minimumValue = 1
         totalCamerasStepper.maximumValue = 128
         totalCamerasStepper.wraps = true
@@ -155,6 +156,9 @@ class CalculateStorageViewController: UIViewController {
     // Total cameras stepper changed
     @IBAction func totalCamerasStepperPressed(_ sender: UIStepper) {
         totalCamerasTextField.text = Int(sender.value).description
+        
+        var totalCams = Int(totalCamerasTextField.text!)
+        totalCamerasFromCreateJob = Int(totalCams!)
         calculateStorage()
     }
     
