@@ -12,9 +12,12 @@ class JobTableViewCell: UITableViewCell {
     
     @IBOutlet weak var customerPhoneNumberButton: UIButton!
     @IBOutlet weak var jobNameLabel: UILabel!
+    @IBOutlet weak var copyButton: UIButton!
+    @IBOutlet weak var customerAddressLabel: UILabel!
     
     static let reuseIdentifier = "JobCell"
     
+    // Call updateViews when job is updated
     var job: Job? {
         didSet {
             updateViews()
@@ -34,16 +37,14 @@ class JobTableViewCell: UITableViewCell {
     
     private func updateViews() {
         guard let job = job,
-            let customerPhoneNumber = job.customerPhoneNumber else { return }
+            let customerPhoneNumber = job.customerPhoneNumber,
+            let customerAddress = job.customerAddress else { return }
        
         let formattedPhoneNumber = format(phoneNumber: customerPhoneNumber)
-        jobNameLabel.text = job.jobName
+        jobNameLabel.text = job.jobName?.capitalized
         customerPhoneNumberButton.setTitle(formattedPhoneNumber, for: .normal)
-    }
-    
-    @IBAction func customerPhoneNumberButtonTapped(_ sender: UIButton) {
-        
-        self.callCustomerPhoneNumber()
+        customerAddressLabel.text = customerAddress
+        customerAddressLabel.adjustsFontSizeToFitWidth = true
     }
     
     func callCustomerPhoneNumber()  {
@@ -59,5 +60,37 @@ class JobTableViewCell: UITableViewCell {
         let url: NSURL = URL(string: "TEL://\(formattedPhoneNumberFive)")! as NSURL
 
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
+    
+    func buttonViewLinkAction(sender:UIButton!) {
+        
+        print("Copy Succsessful")
+        UIPasteboard.general.string = customerAddressLabel.text
+       }
+    
+    func navigateToAddress(addressLink: String) {
+        
+        var navigationURL = "https://maps.apple.com/?address="
+        guard let formattedAddress = addressLink.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed) else { return }
+
+        navigationURL.append(formattedAddress)
+
+        let url: NSURL = URL(string: navigationURL)! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        
+    }
+    
+    @IBAction func customerPhoneNumberButtonTapped(_ sender: UIButton) {
+        
+        self.callCustomerPhoneNumber()
+    }
+    
+    @IBAction func copyButtonTapped(_ sender: UIButton) {
+        
+        buttonViewLinkAction(sender: copyButton)
+
+    }
+    @IBAction func navigateButtonTapped(_ sender: UIButton) {
+        navigateToAddress(addressLink: (job?.customerAddress)!)
     }
 }

@@ -18,6 +18,7 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var totalStorageLabel: UILabel!
     @IBOutlet weak var jobNotesTextView: UITextView!
     @IBOutlet weak var customerAddressTextField: UITextField!
+    @IBOutlet weak var jobNameLabel: UILabel!
     
     var job: Job?
     var wasEdited = false
@@ -30,6 +31,7 @@ class JobDetailViewController: UIViewController {
         updateViews()
     }
     
+    // This will run when we hit back in the navigation bar
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -46,10 +48,9 @@ class JobDetailViewController: UIViewController {
             let numberOfCameras = numberOfCamerasTextField.text
             let totalStorage = totalStorageLabel.text
             let jobNotes = jobNotesTextView.text
-            
             let systemTypeIndex = systemTypeSegmentedController.selectedSegmentIndex
-            job.systemType = SystemType.allCases[systemTypeIndex].rawValue
             
+            job.systemType = SystemType.allCases[systemTypeIndex].rawValue
             job.customerName = cutstomerName
             job.customerPhoneNumber = customerPhoneNumber
             job.customerAddress = customerAddress
@@ -69,14 +70,12 @@ class JobDetailViewController: UIViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
-        if editing { wasEdited = true
-            jobNameTextField.borderStyle = .none
-            
-            
-        }
+        if editing { wasEdited = true }
         
         jobNameTextField.isUserInteractionEnabled = editing
+        jobNameTextField.isHidden = false
         jobNameTextField.borderStyle = .roundedRect
+        jobNameLabel.isHidden = false
         
         customerNameTextField.isUserInteractionEnabled = editing
         customerNameTextField.borderStyle = .roundedRect
@@ -116,8 +115,11 @@ class JobDetailViewController: UIViewController {
             systemType = .COAX
         }
         
-        jobNameTextField.text = job?.jobName
+        jobNameTextField.isHidden = true
+        jobNameLabel.isHidden = true
+        jobNameTextField.text = job?.jobName?.capitalized
         jobNameTextField.isUserInteractionEnabled = isEditing
+        title = job?.jobName?.capitalized
         
         customerNameTextField.text = job?.customerName
         customerNameTextField.isUserInteractionEnabled = isEditing
@@ -131,12 +133,12 @@ class JobDetailViewController: UIViewController {
         systemTypeSegmentedController.selectedSegmentIndex = SystemType.allCases.firstIndex(of: systemType) ?? 1
         systemTypeSegmentedController.isUserInteractionEnabled = isEditing
         
+        numberOfCamerasTextField.isUserInteractionEnabled = isEditing
         numberOfCamerasTextField.text = "\(job?.numberOfCameras ?? 8)"
         totalStorageLabel.text = job?.totalStorage
         
         jobNotesTextView.text = job?.jobNotes
         jobNotesTextView.isUserInteractionEnabled = isEditing
-
     }
     
 }
