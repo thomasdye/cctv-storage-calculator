@@ -17,7 +17,7 @@ class JobTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "JobCell"
     
-    // Call updateViews when job is updated
+    // Call updateViews when job variable is changed
     var job: Job? {
         didSet {
             updateViews()
@@ -81,6 +81,7 @@ class JobTableViewCell: UITableViewCell {
     }
     
     @IBAction func customerPhoneNumberButtonTapped(_ sender: UIButton) {
+        
         
         self.callCustomerPhoneNumber()
     }

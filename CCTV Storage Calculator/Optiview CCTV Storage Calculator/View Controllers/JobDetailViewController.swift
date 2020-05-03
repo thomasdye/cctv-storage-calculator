@@ -19,6 +19,7 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var jobNotesTextView: UITextView!
     @IBOutlet weak var customerAddressTextField: UITextField!
     @IBOutlet weak var jobNameLabel: UILabel!
+    @IBOutlet weak var calculateStorageButton: UIButton!
     
     var job: Job?
     var wasEdited = false
@@ -29,6 +30,10 @@ class JobDetailViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = editButtonItem
         updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setTotalStorage()
     }
     
     // This will run when we hit back in the navigation bar
@@ -67,6 +72,10 @@ class JobDetailViewController: UIViewController {
         }
     }
     
+    func setTotalStorage() {
+//        totalStorageLabel.text = totalStorageCalculated
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
@@ -76,6 +85,7 @@ class JobDetailViewController: UIViewController {
         jobNameTextField.isHidden = false
         jobNameTextField.borderStyle = .roundedRect
         jobNameLabel.isHidden = false
+        calculateStorageButton.isHidden = false
         
         customerNameTextField.isUserInteractionEnabled = editing
         customerNameTextField.borderStyle = .roundedRect
@@ -96,7 +106,31 @@ class JobDetailViewController: UIViewController {
         jobNotesTextView.isEditable = true
         
         navigationItem.hidesBackButton = editing
+        
+        if editing == false {
+            
+            jobNameLabel.isHidden = true
+            jobNameTextField.isHidden = true
+            
+            customerNameTextField.isUserInteractionEnabled = false
+            customerNameTextField.borderStyle = .none
+            
+            customerPhoneNumberTextField.isUserInteractionEnabled = false
+            customerPhoneNumberTextField.borderStyle = .none
+            
+            customerAddressTextField.isUserInteractionEnabled = false
+            customerAddressTextField.borderStyle = .none
+            
+            systemTypeSegmentedController.isUserInteractionEnabled = false
+            
+            numberOfCamerasTextField.isUserInteractionEnabled = false
+            numberOfCamerasTextField.borderStyle = .none
+            
+            calculateStorageButton.isHidden = true
+        }
     }
+    
+    
     
     func setupTextView() {
         jobNotesTextView.layer.borderColor = UIColor.lightGray.cgColor
@@ -117,17 +151,19 @@ class JobDetailViewController: UIViewController {
         
         jobNameTextField.isHidden = true
         jobNameLabel.isHidden = true
+        calculateStorageButton.isHidden = true
+        
         jobNameTextField.text = job?.jobName?.capitalized
         jobNameTextField.isUserInteractionEnabled = isEditing
         title = job?.jobName?.capitalized
         
-        customerNameTextField.text = job?.customerName
+        customerNameTextField.text = job?.customerName?.capitalized
         customerNameTextField.isUserInteractionEnabled = isEditing
         
         customerPhoneNumberTextField.text = formattedPhoneNumber
         customerPhoneNumberTextField.isUserInteractionEnabled = isEditing
         
-        customerAddressTextField.text = job?.customerAddress
+        customerAddressTextField.text = job?.customerAddress?.capitalized
         customerAddressTextField.isUserInteractionEnabled = isEditing
         
         systemTypeSegmentedController.selectedSegmentIndex = SystemType.allCases.firstIndex(of: systemType) ?? 1
@@ -139,6 +175,12 @@ class JobDetailViewController: UIViewController {
         
         jobNotesTextView.text = job?.jobNotes
         jobNotesTextView.isUserInteractionEnabled = isEditing
+    }
+    
+    @IBAction func calculateStorageButtonTapped(_ sender: UIButton) {
+        
+        guard let numberOfCameras = numberOfCamerasTextField.text else { return }
+        totalCamerasFromCreateJob = Int(numberOfCameras) ?? 8
     }
     
 }

@@ -955,6 +955,8 @@
                                                 <state key="normal" title="Calculate"/>
                                                 <connections>
                                                     <action selector="calculateButtonTapped:" destination="TxK-BQ-lsK" eventType="touchUpInside" id="kiT-6H-fwV"/>
+                                                    <action selector="calculateStorageButtonTapped:" destination="HYU-Pf-rRL" eventType="touchUpInside" id="Ynu-5E-vu6"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="Q8b-cc-IrQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -993,6 +995,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Emb-3m-FA3"/>
                     <connections>
+                        <outlet property="calculateStorageButton" destination="Dio-iW-W3B" id="Yat-ja-7DT"/>
                         <outlet property="customerAddressTextField" destination="9Ot-CG-so9" id="8Ni-uR-iwq"/>
                         <outlet property="customerNameTextField" destination="ccb-Hx-efg" id="hI4-q7-pn5"/>
                         <outlet property="customerPhoneNumberTextField" destination="Ni8-3o-PO2" id="xxZ-3Z-VOS"/>
@@ -1256,6 +1259,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ODH-tq-14w"/>
+        <segue reference="Q8b-cc-IrQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="07.square" catalog="system" width="128" height="114"/>

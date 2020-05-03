@@ -45,40 +45,50 @@ class CreateJobViewController: UIViewController {
     // Save button tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
-        // Check if job name, customer name, phone number, total storage have value
-        guard let jobName = jobNameTextField.text,
-            let customerName = customerNameTextField.text,
-            let customerPhoneNumber = phoneNumberTextField.text,
-            let customerAddress = customerAddressTextField.text,
-            let totalStorage = totalStorageLabel.text,
-            let numberOfCameras = Int64(numberOfCamerasTextField.text ?? "0"),
-            let jobNotes = jobNotesTextView.text else { return }
+        let alertController = UIAlertController(title: "New Job Added",
+                                                message: "You have successfully added a new job.",
+                                                preferredStyle: .alert)
         
-        // Need to determine the selectedSegmentIndex for systemType and convert it to a string
-        
-        let systemTypeIndex = systemTypeSegmentedControl.selectedSegmentIndex
-        let systemType = SystemType.allCases[systemTypeIndex]
-        
-        Job(jobName: jobName,
-            customerName: customerName,
-            customerPhoneNumber: customerPhoneNumber,
-            customerAddress: customerAddress,
-            systemType: systemType,
-            numberOfCameras: numberOfCameras,
-            totalStorage: totalStorage,
-            jobNotes: jobNotes,
-            context: CoreDataStack.shared.mainContext)
-        
-        // do try catch to save the context we have created
-        do {
-            try CoreDataStack.shared.mainContext.save()
-        } catch {
-            NSLog("Error saving manage object context: \(error)")
+        // Create OK button
+        let OKAction = UIAlertAction(title: "OK",
+                                     style: .default) { (action:UIAlertAction!) in
+                                        
+                                        guard let jobName = self.jobNameTextField.text,
+                                            let customerName = self.customerNameTextField.text,
+                                            let customerPhoneNumber = self.phoneNumberTextField.text,
+                                            let customerAddress = self.customerAddressTextField.text,
+                                            let totalStorage = self.totalStorageLabel.text,
+                                            let numberOfCameras = Int64(self.numberOfCamerasTextField.text ?? "0"),
+                                            let jobNotes = self.jobNotesTextView.text else { return }
+                                        // Need to determine the selectedSegmentIndex for systemType and convert it to a string
+                                        let systemTypeIndex = self.systemTypeSegmentedControl.selectedSegmentIndex
+                                        let systemType = SystemType.allCases[systemTypeIndex]
+                                        
+                                        Job(jobName: jobName,
+                                            customerName: customerName,
+                                            customerPhoneNumber: customerPhoneNumber,
+                                            customerAddress: customerAddress,
+                                            systemType: systemType,
+                                            numberOfCameras: numberOfCameras,
+                                            totalStorage: totalStorage,
+                                            jobNotes: jobNotes,
+                                            context: CoreDataStack.shared.mainContext)
+                                        
+                                        // do try catch to save the context we have created
+                                        do {
+                                            try CoreDataStack.shared.mainContext.save()
+                                        } catch {
+                                            NSLog("Error saving manage object context: \(error)")
+                                        }
+                                        
+                                        self.navigationController?.popViewController(animated: true)
+                                        
         }
-        
-        navigationController?.popViewController(animated: true)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion:nil)
         
     }
+    
     @IBAction func calculateButtonTapped(_ sender: UIButton) {
         
         guard let numberOfCameras = numberOfCamerasTextField.text else { return }
