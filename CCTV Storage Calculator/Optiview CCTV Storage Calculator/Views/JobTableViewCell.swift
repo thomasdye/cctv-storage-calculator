@@ -12,7 +12,6 @@ class JobTableViewCell: UITableViewCell {
     
     @IBOutlet weak var customerPhoneNumberButton: UIButton!
     @IBOutlet weak var jobNameLabel: UILabel!
-    @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var customerAddressLabel: UILabel!
     
     static let reuseIdentifier = "JobCell"
@@ -62,12 +61,6 @@ class JobTableViewCell: UITableViewCell {
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
     }
     
-    func buttonViewLinkAction(sender:UIButton!) {
-        
-        print("Copy Succsessful")
-        UIPasteboard.general.string = customerAddressLabel.text
-       }
-    
     func navigateToAddress(addressLink: String) {
         
         var navigationURL = "https://maps.apple.com/?address="
@@ -86,11 +79,6 @@ class JobTableViewCell: UITableViewCell {
         self.callCustomerPhoneNumber()
     }
     
-    @IBAction func copyButtonTapped(_ sender: UIButton) {
-        
-        buttonViewLinkAction(sender: copyButton)
-
-    }
     @IBAction func navigateButtonTapped(_ sender: UIButton) {
         navigateToAddress(addressLink: (job?.customerAddress)!)
     }

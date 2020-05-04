@@ -738,14 +738,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="JobCell" id="6gs-Vd-cfu" customClass="JobTableViewCell" customModule="CCTV_Storage_Calculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="163.66667175292969"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="163"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gs-Vd-cfu" id="7E7-A8-OhN">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="163.66667175292969"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="163"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="igz-sv-EhJ">
-                                            <rect key="frame" x="15" y="30.000000000000007" width="368" height="103.66666666666669"/>
+                                            <rect key="frame" x="15" y="30" width="368" height="103"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrT-qF-wSj">
                                                     <rect key="frame" x="0.0" y="0.0" width="368" height="30"/>
@@ -754,17 +754,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="YSJ-9Q-o6y">
-                                                    <rect key="frame" x="0.0" y="30.000000000000004" width="368" height="50.333333333333343"/>
+                                                    <rect key="frame" x="0.0" y="30" width="368" height="51"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TD-hY-At3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="50.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="51"/>
                                                             <state key="normal" title="Button"/>
                                                             <connections>
                                                                 <action selector="customerPhoneNumberButtonTapped:" destination="6gs-Vd-cfu" eventType="touchUpInside" id="iLp-a1-S2k"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AY-wu-pAb">
-                                                            <rect key="frame" x="318" y="0.0" width="50" height="50.333333333333336"/>
+                                                            <rect key="frame" x="318" y="0.0" width="50" height="51"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -772,23 +772,16 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bxq-ck-Kqd">
-                                                    <rect key="frame" x="0.0" y="80.333333333333329" width="368" height="23.333333333333329"/>
+                                                    <rect key="frame" x="0.0" y="81" width="368" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNe-8d-vfJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="140.66666666666666" height="23.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="208" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6x-EN-dI1">
-                                                            <rect key="frame" x="150.66666666666666" y="0.0" width="81.666666666666657" height="23.333333333333332"/>
-                                                            <state key="normal" image="doc.on.clipboard" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="copyButtonTapped:" destination="6gs-Vd-cfu" eventType="touchUpInside" id="GU3-dC-YuX"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ns-AR-41t">
-                                                            <rect key="frame" x="242.33333333333329" y="0.0" width="125.66666666666666" height="23.333333333333332"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ns-AR-41t">
+                                                            <rect key="frame" x="218" y="0.0" width="150" height="22"/>
                                                             <state key="normal" image="mappin.and.ellipse" catalog="system"/>
                                                             <connections>
                                                                 <action selector="navigateButtonTapped:" destination="6gs-Vd-cfu" eventType="touchUpInside" id="hCd-cT-zUQ"/>
@@ -807,7 +800,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="copyButton" destination="T6x-EN-dI1" id="Y9n-AN-jTT"/>
                                     <outlet property="customerAddressLabel" destination="uNe-8d-vfJ" id="I6k-rF-BGw"/>
                                     <outlet property="customerPhoneNumberButton" destination="8TD-hY-At3" id="Qyl-Bp-A3i"/>
                                     <outlet property="jobNameLabel" destination="HrT-qF-wSj" id="FJy-LN-mDQ"/>
@@ -1345,7 +1337,6 @@
         <image name="07.square" catalog="system" width="128" height="114"/>
         <image name="30.square" catalog="system" width="128" height="114"/>
         <image name="briefcase" catalog="system" width="128" height="102"/>
-        <image name="doc.on.clipboard" catalog="system" width="117" height="128"/>
         <image name="folder" catalog="system" width="128" height="95"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="optiview-logo" width="595.33331298828125" height="165.66667175292969"/>
