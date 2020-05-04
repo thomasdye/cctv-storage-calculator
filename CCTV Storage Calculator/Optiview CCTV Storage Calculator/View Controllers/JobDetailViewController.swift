@@ -24,12 +24,18 @@ class JobDetailViewController: UIViewController {
     var job: Job?
     var wasEdited = false
     var systemType = ""
+    let accentColor: CGColor = UIColor(hue: 0.5694,
+                                                saturation: 1,
+                                                brightness: 0.97,
+                                                alpha: 0.8).cgColor
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = editButtonItem
         updateViews()
+        styleTextFields()
+        setupTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,34 +87,29 @@ class JobDetailViewController: UIViewController {
         
         if editing { wasEdited = true }
         
+        styleTextFields()
+        
         jobNameTextField.isUserInteractionEnabled = editing
         jobNameTextField.isHidden = false
-        jobNameTextField.borderStyle = .roundedRect
         jobNameLabel.isHidden = false
         calculateStorageButton.isHidden = false
         
-        customerNameTextField.isUserInteractionEnabled = editing
-        customerNameTextField.borderStyle = .roundedRect
+        let allTextFields: [UITextField] = [customerNameTextField,
+                                            customerPhoneNumberTextField,
+                                            customerAddressTextField,
+                                            numberOfCamerasTextField]
         
-        customerPhoneNumberTextField.isUserInteractionEnabled = editing
-        customerPhoneNumberTextField.borderStyle = .roundedRect
-        
-        customerAddressTextField.isUserInteractionEnabled = editing
-        customerAddressTextField.borderStyle = .roundedRect
-        
-        systemTypeSegmentedController.isUserInteractionEnabled = editing
-        
-        numberOfCamerasTextField.isUserInteractionEnabled = editing
-        numberOfCamerasTextField.borderStyle = .roundedRect
-        
-        setupTextView()
+        for textField in allTextFields {
+            textField.isUserInteractionEnabled = editing
+        }
+
         jobNotesTextView.isUserInteractionEnabled = editing
         jobNotesTextView.isEditable = true
         
         navigationItem.hidesBackButton = editing
         
         if editing == false {
-            
+
             jobNameLabel.isHidden = true
             jobNameTextField.isHidden = true
             
@@ -133,9 +134,35 @@ class JobDetailViewController: UIViewController {
     
     
     func setupTextView() {
-        jobNotesTextView.layer.borderColor = UIColor.lightGray.cgColor
-        jobNotesTextView.layer.borderWidth = 1
-        jobNotesTextView.layer.cornerRadius = 15.0
+        jobNotesTextView.layer.borderColor = accentColor
+        jobNotesTextView.layer.borderWidth = 2
+        jobNotesTextView.layer.cornerRadius = 10.0
+    }
+    
+    
+    func styleTextFields() {
+        let allTextFields: [UITextField] = [jobNameTextField,
+                                         customerNameTextField,
+                                         customerPhoneNumberTextField,
+                                         customerAddressTextField,
+                                         numberOfCamerasTextField]
+        
+        for textField in allTextFields {
+            textField.borderStyle = .none
+            let bottomLine = CALayer()
+            
+            bottomLine.frame = CGRect(x: 0,
+                                      y: textField.frame.height + 4,
+                                      width: textField.frame.width,
+                                      height: 2)
+            
+            bottomLine.backgroundColor = accentColor
+            textField.layer.addSublayer(bottomLine)
+        }
+        systemTypeSegmentedController.selectedSegmentTintColor = UIColor(hue: 0.5694,
+                                                                         saturation: 1,
+                                                                         brightness: 0.97,
+                                                                         alpha: 0.8)
     }
     
     private func updateViews() {

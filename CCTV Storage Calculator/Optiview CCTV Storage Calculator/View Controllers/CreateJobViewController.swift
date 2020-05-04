@@ -8,7 +8,7 @@
 
 import UIKit
 
-var totalCamerasFromCreateJob: Int = 0
+var totalCamerasFromCreateJob: Int = Int()
 
 class CreateJobViewController: UIViewController {
     
