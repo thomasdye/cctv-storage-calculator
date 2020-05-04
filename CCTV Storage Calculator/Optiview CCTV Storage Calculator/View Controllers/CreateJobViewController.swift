@@ -17,15 +17,21 @@ class CreateJobViewController: UIViewController {
     @IBOutlet weak var totalStorageLabel: UILabel!
     @IBOutlet weak var jobNameTextField: UITextField!
     @IBOutlet weak var customerNameTextField: UITextField!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var customerPhoneNumberTextField: UITextField!
     @IBOutlet weak var systemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var numberOfCamerasTextField: UITextField!
     @IBOutlet weak var customerAddressTextField: UITextField!
+    
+    let accentColor: CGColor = UIColor(hue: 0.5694,
+                                                saturation: 1,
+                                                brightness: 0.97,
+                                                alpha: 0.75).cgColor
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTextView()
+        styleTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,15 +43,66 @@ class CreateJobViewController: UIViewController {
     }
     
     func setupTextView() {
-        jobNotesTextView.layer.borderColor = UIColor.lightGray.cgColor
-        jobNotesTextView.layer.borderWidth = 1
-        jobNotesTextView.layer.cornerRadius = 15.0
+        jobNotesTextView.layer.borderColor = accentColor
+        jobNotesTextView.layer.borderWidth = 2
+        jobNotesTextView.layer.cornerRadius = 10.0
+        systemTypeSegmentedControl.selectedSegmentTintColor = UIColor(hue: 0.5694,
+                                                                      saturation: 1,
+                                                                      brightness: 0.97,
+                                                                      alpha: 0.75)
     }
     
+    // Remove borders from text fields
+    func styleTextFields() {
+        
+        let allTextFields: [UITextField] = [jobNameTextField,
+                                         customerNameTextField,
+                                         customerPhoneNumberTextField,
+                                         customerAddressTextField,
+                                         numberOfCamerasTextField]
+        
+        for textField in allTextFields {
+            textField.borderStyle = .none
+            let bottomLine = CALayer()
+            
+            bottomLine.frame = CGRect(x: 0,
+                                      y: textField.frame.height + 4,
+                                      width: textField.frame.width,
+                                      height: 2)
+            
+            bottomLine.backgroundColor = accentColor
+            textField.layer.addSublayer(bottomLine)
+        }
+    }
+
     // Save button tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
-        let alertController = UIAlertController(title: "New Job Added",
+        if jobNameTextField.text?.isEmpty == true || customerNameTextField.text?.isEmpty == true || customerPhoneNumberTextField.text?.isEmpty == true || customerAddressTextField.text?.isEmpty == true {
+            
+            let alertController = UIAlertController(title: "Missing Information",
+                                                    message: "Please fill out all required fields marked with *",
+                                                    preferredStyle: .alert)
+            
+            // Create OK button
+            let OKAction = UIAlertAction(title: "OK",
+                                         style: .default)
+            
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion:nil)
+            
+            let requiredTextFields: [UITextField] = [jobNameTextField,
+                                                     customerNameTextField,
+                                                     customerPhoneNumberTextField,
+                                                     customerAddressTextField]
+            
+            for textField in requiredTextFields {
+                textField.placeholder?.append("*")
+            }
+            
+        } else {
+            
+        let alertController = UIAlertController(title: "New Job Added!",
                                                 message: "You have successfully added a new job.",
                                                 preferredStyle: .alert)
         
@@ -55,7 +112,7 @@ class CreateJobViewController: UIViewController {
                                         
                                         guard let jobName = self.jobNameTextField.text,
                                             let customerName = self.customerNameTextField.text,
-                                            let customerPhoneNumber = self.phoneNumberTextField.text,
+                                            let customerPhoneNumber = self.customerPhoneNumberTextField.text,
                                             let customerAddress = self.customerAddressTextField.text,
                                             let totalStorage = self.totalStorageLabel.text,
                                             let numberOfCameras = Int64(self.numberOfCamerasTextField.text ?? "0"),
@@ -87,6 +144,7 @@ class CreateJobViewController: UIViewController {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion:nil)
         
+        }
     }
     
     @IBAction func calculateButtonTapped(_ sender: UIButton) {
