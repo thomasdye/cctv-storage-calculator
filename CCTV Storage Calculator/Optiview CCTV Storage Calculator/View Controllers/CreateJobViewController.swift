@@ -20,6 +20,7 @@ class CreateJobViewController: UIViewController {
     @IBOutlet weak var customerPhoneNumberTextField: UITextField!
     @IBOutlet weak var systemTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var numberOfCamerasTextField: UITextField!
+    @IBOutlet weak var customerEmailTextField: UITextField!
     @IBOutlet weak var customerAddressTextField: UITextField!
     
     let accentColor: CGColor = UIColor(hue: 0.5694,
@@ -78,7 +79,7 @@ class CreateJobViewController: UIViewController {
     // Save button tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
-        if jobNameTextField.text?.isEmpty == true || customerNameTextField.text?.isEmpty == true || customerPhoneNumberTextField.text?.isEmpty == true || customerAddressTextField.text?.isEmpty == true {
+        if jobNameTextField.text?.isEmpty == true || customerNameTextField.text?.isEmpty == true || customerPhoneNumberTextField.text?.isEmpty == true || customerAddressTextField.text?.isEmpty == true || customerEmailTextField.text?.isEmpty == true {
             
             let alertController = UIAlertController(title: "Missing Information",
                                                     message: "Please fill out all required fields marked with *",
@@ -94,7 +95,8 @@ class CreateJobViewController: UIViewController {
             let requiredTextFields: [UITextField] = [jobNameTextField,
                                                      customerNameTextField,
                                                      customerPhoneNumberTextField,
-                                                     customerAddressTextField]
+                                                     customerAddressTextField,
+                                                     customerEmailTextField]
             
             for textField in requiredTextFields {
                 textField.placeholder?.append("*")
@@ -117,6 +119,7 @@ class CreateJobViewController: UIViewController {
                                             let totalStorage = self.totalStorageLabel.text,
                                             let numberOfCameras = Int64(self.numberOfCamerasTextField.text ?? "0"),
                                             let jobNotes = self.jobNotesTextView.text else { return }
+                                        
                                         // Need to determine the selectedSegmentIndex for systemType and convert it to a string
                                         let systemTypeIndex = self.systemTypeSegmentedControl.selectedSegmentIndex
                                         let systemType = SystemType.allCases[systemTypeIndex]

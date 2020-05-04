@@ -13,6 +13,7 @@ class SignInViewController: UIViewController {
    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var staySignedInSwitch: UISwitch!
     
     let accentColor: CGColor = UIColor(hue: 0.5694,
                                                 saturation: 1,
@@ -21,6 +22,11 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        staySignedInSwitch.onTintColor = UIColor(hue: 0.5694,
+        saturation: 1,
+        brightness: 0.97,
+        alpha: 0.8)
         
         styleTextFields()
     }

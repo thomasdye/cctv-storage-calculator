@@ -157,7 +157,7 @@ class CalculateStorageViewController: UIViewController {
     @IBAction func totalCamerasStepperPressed(_ sender: UIStepper) {
         totalCamerasTextField.text = Int(sender.value).description
         
-        var totalCams = Int(totalCamerasTextField.text!)
+        let totalCams = Int(totalCamerasTextField.text!)
         totalCamerasFromCreateJob = Int(totalCams!)
         calculateStorage()
     }

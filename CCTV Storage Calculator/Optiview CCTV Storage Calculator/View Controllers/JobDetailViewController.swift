@@ -28,6 +28,7 @@ class JobDetailViewController: UIViewController {
                                                 saturation: 1,
                                                 brightness: 0.97,
                                                 alpha: 0.8).cgColor
+    var newTitle: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,8 @@ class JobDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setTotalStorage()
     }
+    
+    
     
     // This will run when we hit back in the navigation bar
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,6 +92,7 @@ class JobDetailViewController: UIViewController {
         
         styleTextFields()
         
+        title = ""
         jobNameTextField.isUserInteractionEnabled = editing
         jobNameTextField.isHidden = false
         jobNameLabel.isHidden = false
@@ -106,10 +110,13 @@ class JobDetailViewController: UIViewController {
         jobNotesTextView.isUserInteractionEnabled = editing
         jobNotesTextView.isEditable = true
         
+        newTitle = jobNameTextField.text!
+        
         navigationItem.hidesBackButton = editing
         
         if editing == false {
-
+            
+            title = newTitle
             jobNameLabel.isHidden = true
             jobNameTextField.isHidden = true
             
