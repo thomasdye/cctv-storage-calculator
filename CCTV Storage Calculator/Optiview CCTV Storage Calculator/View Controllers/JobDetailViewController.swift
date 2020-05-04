@@ -17,6 +17,7 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var numberOfCamerasTextField: UITextField!
     @IBOutlet weak var totalStorageLabel: UILabel!
     @IBOutlet weak var jobNotesTextView: UITextView!
+    @IBOutlet weak var customerEmailTextField: UITextField!
     @IBOutlet weak var customerAddressTextField: UITextField!
     @IBOutlet weak var jobNameLabel: UILabel!
     @IBOutlet weak var calculateStorageButton: UIButton!
@@ -58,6 +59,7 @@ class JobDetailViewController: UIViewController {
             
             let cutstomerName = customerNameTextField.text
             let customerPhoneNumber = customerPhoneNumberTextField.text
+            let customerEmailAddress = customerEmailTextField.text
             let customerAddress = customerAddressTextField.text
             let numberOfCameras = numberOfCamerasTextField.text
             let totalStorage = totalStorageLabel.text
@@ -67,6 +69,7 @@ class JobDetailViewController: UIViewController {
             job.systemType = SystemType.allCases[systemTypeIndex].rawValue
             job.customerName = cutstomerName
             job.customerPhoneNumber = customerPhoneNumber
+            job.customerEmailAddress = customerEmailAddress
             job.customerAddress = customerAddress
             job.numberOfCameras = Int64(numberOfCameras ?? "0") ?? 0
             job.totalStorage = totalStorage
@@ -101,7 +104,8 @@ class JobDetailViewController: UIViewController {
         let allTextFields: [UITextField] = [customerNameTextField,
                                             customerPhoneNumberTextField,
                                             customerAddressTextField,
-                                            numberOfCamerasTextField]
+                                            numberOfCamerasTextField,
+                                            customerEmailTextField]
         
         for textField in allTextFields {
             textField.isUserInteractionEnabled = editing
@@ -125,6 +129,9 @@ class JobDetailViewController: UIViewController {
             
             customerPhoneNumberTextField.isUserInteractionEnabled = false
             customerPhoneNumberTextField.borderStyle = .none
+            
+            customerEmailTextField.isUserInteractionEnabled = false
+            customerEmailTextField.borderStyle = .none
             
             customerAddressTextField.isUserInteractionEnabled = false
             customerAddressTextField.borderStyle = .none
@@ -152,7 +159,8 @@ class JobDetailViewController: UIViewController {
                                          customerNameTextField,
                                          customerPhoneNumberTextField,
                                          customerAddressTextField,
-                                         numberOfCamerasTextField]
+                                         numberOfCamerasTextField,
+                                         customerEmailTextField]
         
         for textField in allTextFields {
             textField.borderStyle = .none
@@ -196,6 +204,9 @@ class JobDetailViewController: UIViewController {
         
         customerPhoneNumberTextField.text = formattedPhoneNumber
         customerPhoneNumberTextField.isUserInteractionEnabled = isEditing
+        
+        customerEmailTextField.text = job?.customerEmailAddress
+        customerEmailTextField.isUserInteractionEnabled = isEditing
         
         customerAddressTextField.text = job?.customerAddress?.capitalized
         customerAddressTextField.isUserInteractionEnabled = isEditing

@@ -20,6 +20,7 @@ extension Job {
                                         customerName: String,
                                         customerPhoneNumber: String,
                                         customerAddress: String = "",
+                                        customerEmailAddress: String = "",
                                         systemType: SystemType,
                                         numberOfCameras: Int64,
                                         totalStorage: String,
@@ -33,6 +34,7 @@ extension Job {
         self.customerName = customerName
         self.customerPhoneNumber = customerPhoneNumber
         self.customerAddress = customerAddress
+        self.customerEmailAddress = customerEmailAddress
         self.systemType = systemType.rawValue
         self.numberOfCameras = numberOfCameras
         self.totalStorage = totalStorage

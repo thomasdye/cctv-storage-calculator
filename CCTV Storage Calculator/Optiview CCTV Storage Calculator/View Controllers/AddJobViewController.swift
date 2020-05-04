@@ -60,7 +60,8 @@ class AddJobViewController: UIViewController {
                                          customerNameTextField,
                                          customerPhoneNumberTextField,
                                          customerAddressTextField,
-                                         numberOfCamerasTextField]
+                                         numberOfCamerasTextField,
+                                         customerEmailTextField]
         
         for textField in allTextFields {
             textField.borderStyle = .none
@@ -115,6 +116,7 @@ class AddJobViewController: UIViewController {
                                         guard let jobName = self.jobNameTextField.text,
                                             let customerName = self.customerNameTextField.text,
                                             let customerPhoneNumber = self.customerPhoneNumberTextField.text,
+                                            let customerEmailAddress = self.customerEmailTextField.text,
                                             let customerAddress = self.customerAddressTextField.text,
                                             let totalStorage = self.totalStorageLabel.text,
                                             let numberOfCameras = Int64(self.numberOfCamerasTextField.text ?? "0"),
@@ -128,6 +130,7 @@ class AddJobViewController: UIViewController {
                                             customerName: customerName,
                                             customerPhoneNumber: customerPhoneNumber,
                                             customerAddress: customerAddress,
+                                            customerEmailAddress: customerEmailAddress,
                                             systemType: systemType,
                                             numberOfCameras: numberOfCameras,
                                             totalStorage: totalStorage,
