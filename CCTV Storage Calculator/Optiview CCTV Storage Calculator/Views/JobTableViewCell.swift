@@ -50,13 +50,13 @@ class JobTableViewCell: UITableViewCell {
         
         guard let customerPhoneNumber = job?.customerPhoneNumber else { return }
         
-        let formattedPhoneNumber = format(phoneNumber: customerPhoneNumber)
+        var formattedPhoneNumber = format(phoneNumber: customerPhoneNumber)
         
-        let formattedPhoneNumberTwo = formattedPhoneNumber.replacingOccurrences(of: "(", with: "", options: NSString.CompareOptions.literal, range: nil)
-        let formattedPhoneNumberThree = formattedPhoneNumberTwo.replacingOccurrences(of: ")", with: "", options: NSString.CompareOptions.literal, range: nil)
-        let formattedPhoneNumberFour = formattedPhoneNumberThree.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range: nil)
-        let formattedPhoneNumberFive = formattedPhoneNumberFour.replacingOccurrences(of: " ", with: "", options: NSString.CompareOptions.literal, range: nil)
-        let url: NSURL = URL(string: "TEL://\(formattedPhoneNumberFive)")! as NSURL
+        formattedPhoneNumber = formattedPhoneNumber.replacingOccurrences(of: "(", with: "", options: NSString.CompareOptions.literal, range: nil)
+        formattedPhoneNumber = formattedPhoneNumber.replacingOccurrences(of: ")", with: "", options: NSString.CompareOptions.literal, range: nil)
+        formattedPhoneNumber = formattedPhoneNumber.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range: nil)
+        formattedPhoneNumber = formattedPhoneNumber.replacingOccurrences(of: " ", with: "", options: NSString.CompareOptions.literal, range: nil)
+        let url: NSURL = URL(string: "TEL://\(formattedPhoneNumber)")! as NSURL
 
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
     }
