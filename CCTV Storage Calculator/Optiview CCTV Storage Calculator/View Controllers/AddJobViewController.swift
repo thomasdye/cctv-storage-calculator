@@ -10,7 +10,7 @@ import UIKit
 
 var totalCamerasFromCreateJob: Int = Int()
 
-class AddJobViewController: UIViewController {
+class AddJobViewController: UIViewController, UITextFieldDelegate {
     
     // Outlets
     @IBOutlet weak var jobNotesTextView: UITextView!
@@ -30,9 +30,12 @@ class AddJobViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupTextView()
+        setUpKeyboardNotification()
+        setUpTextView()
         styleTextFields()
+        
+        jobNameTextField.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +46,7 @@ class AddJobViewController: UIViewController {
         totalStorageLabel.text = totalStorageCalculated
     }
     
-    func setupTextView() {
+    func setUpTextView() {
         jobNotesTextView.layer.borderColor = accentColor
         jobNotesTextView.layer.borderWidth = 2
         jobNotesTextView.layer.cornerRadius = 10.0
@@ -51,6 +54,65 @@ class AddJobViewController: UIViewController {
                                                                       saturation: 1,
                                                                       brightness: 0.97,
                                                                       alpha: 0.75)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            
+            switch textField {
+            case jobNameTextField:
+                customerNameTextField.delegate = self
+                customerNameTextField.becomeFirstResponder()
+            case customerNameTextField:
+                customerPhoneNumberTextField.delegate = self
+                customerPhoneNumberTextField.becomeFirstResponder()
+            default:
+                textField.resignFirstResponder()
+            }
+            return true
+    }
+    
+    func setUpKeyboardNotification() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        let jobNameHeight = jobNameTextField.frame.height
+        let customerNameHeight = customerNameTextField.frame.height
+        let phoneHeight = customerPhoneNumberTextField.frame.height
+        let emailHeight = customerEmailTextField.frame.height
+        let addressHeight = customerAddressTextField.frame.height
+        let segmentedHeight = systemTypeSegmentedControl.frame.height
+        let camerasHeight = numberOfCamerasTextField.frame.height
+        let jobNotesHeight = jobNotesTextView.frame.height
+        
+        if jobNameTextField.isEditing {
+            self.view.frame.origin.y = 0
+        } else if customerNameTextField.isEditing {
+            self.view.frame.origin.y = -(jobNameHeight)
+        } else if customerPhoneNumberTextField.isEditing {
+            self.view.frame.origin.y = -(jobNameHeight + customerNameHeight + phoneHeight)
+        } else if customerEmailTextField.isEditing {
+            self.view.frame.origin.y = -(jobNameHeight + customerNameHeight + phoneHeight + emailHeight)
+        } else if customerAddressTextField.isEditing {
+            self.view.frame.origin.y = -(jobNameHeight + customerNameHeight + phoneHeight + emailHeight + addressHeight)
+        } else if numberOfCamerasTextField.isEditing {
+            self.view.frame.origin.y = -(jobNameHeight + customerNameHeight + phoneHeight + emailHeight + addressHeight + segmentedHeight + camerasHeight)
+        } else if jobNotesTextView.isTracking{
+            self.view.frame.origin.y = -(jobNameHeight + customerNameHeight + phoneHeight + emailHeight + addressHeight + segmentedHeight + camerasHeight + jobNotesHeight)
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+            self.view.frame.origin.y = 0
     }
     
     // Remove borders from text fields
